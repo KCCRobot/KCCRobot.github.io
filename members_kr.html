@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>조합원 소개 - Care Robot 2026</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; background-color: #f8fafc; color: #334155; line-height: 1.6; display: flex; min-height: 100vh; }
+        
+        /* Sidebar */
+        .sidebar { width: 260px; background-color: #0f172a; color: #ffffff; position: fixed; top: 0; left: 0; bottom: 0; padding: 35px 22px; overflow-y: auto; z-index: 100; }
+        .sidebar-brand { font-size: 1.25rem; font-weight: 700; color: #ffffff; text-decoration: none; display: block; margin-bottom: 28px; line-height: 1.4; }
+        .sidebar-brand span { color: #38bdf8; font-size: 0.85rem; display: block; font-weight: 400; margin-top: 4px; }
+        .sidebar-menu { list-style: none; }
+        .sidebar-menu li { margin-bottom: 12px; }
+        .sidebar-menu a { color: #94a3b8; text-decoration: none; font-size: 0.98rem; display: block; padding: 8px 12px; border-radius: 6px; transition: all 0.2s; }
+        .sidebar-menu a:hover, .sidebar-menu a.active { color: #ffffff; background-color: #1e293b; font-weight: 600; }
+        
+        /* Main Layout */
+        .main-wrapper { margin-left: 260px; flex: 1; display: flex; flex-direction: column; min-width: 0; }
+        .top-lang-bar { display: flex; justify-content: flex-end; align-items: center; padding: 12px 30px; background-color: #0b1120; border-bottom: 1px solid #1e293b; }
+        .lang-switch { display: inline-flex; align-items: center; gap: 10px; font-size: 0.95rem; font-weight: 600; }
+        .lang-switch a { text-decoration: none; color: #94a3b8; padding: 4px 10px; border-radius: 6px; transition: all 0.2s; }
+        .lang-switch a.active { color: #0d9488; background-color: #ffffff; }
+        
+        header { background: linear-gradient(135deg, #1e3a8a 0%, #0f172a 100%); color: white; padding: 45px 25px; text-align: center; border-bottom: 4px solid #0d9488; }
+        .badge { display: inline-block; background-color: rgba(13, 148, 136, 0.25); border: 1px solid #0d9488; color: #5eead4; padding: 4px 14px; border-radius: 20px; font-size: 0.85rem; font-weight: 600; margin-bottom: 12px; }
+        h1.page-title { font-size: 2.1rem; font-weight: 800; margin-bottom: 8px; }
+        .page-subtitle { font-size: 1.05rem; color: #93c5fd; }
+        
+        main { max-width: 1100px; margin: 30px auto; padding: 0 25px; width: 100%; }
+        
+        .tab-nav { display: flex; gap: 10px; margin-bottom: 30px; border-bottom: 2px solid #e2e8f0; padding-bottom: 12px; flex-wrap: wrap; }
+        .tab-btn { background: #ffffff; border: 1px solid #cbd5e1; padding: 8px 18px; border-radius: 20px; font-size: 0.95rem; font-weight: 600; color: #475569; cursor: pointer; transition: all 0.2s; }
+        .tab-btn:hover { border-color: #0d9488; color: #0d9488; }
+        .tab-btn.active { background: #0d9488; color: #ffffff; border-color: #0d9488; }
+        
+        .section-header { margin: 35px 0 20px; padding-bottom: 10px; border-bottom: 2px solid #0f172a; display: flex; align-items: baseline; gap: 10px; }
+        .section-header h2 { font-size: 1.5rem; color: #0f172a; }
+        .section-header span { color: #64748b; font-size: 0.95rem; }
+        
+        .member-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 24px; margin-bottom: 40px; }
+        .member-card { background: #ffffff; border-radius: 12px; border: 1px solid #e2e8f0; box-shadow: 0 2px 5px rgba(0,0,0,0.04); overflow: hidden; display: flex; flex-direction: column; }
+        .member-card:hover { transform: translateY(-3px); box-shadow: 0 6px 16px rgba(0,0,0,0.08); transition: all 0.2s ease; }
+        
+        .card-img-wrap { width: 100%; height: 200px; background-color: #f1f5f9; display: flex; align-items: center; justify-content: center; overflow: hidden; position: relative; border-bottom: 1px solid #e2e8f0; padding: 10px; }
+        .card-img-wrap img { max-width: 100%; max-height: 100%; object-fit: contain; }
+        .card-img-wrap .no-img { color: #94a3b8; font-size: 0.9rem; font-weight: 500; }
+        
+        .card-body { padding: 22px; flex: 1; display: flex; flex-direction: column; }
+        .card-tag { display: inline-block; font-size: 0.78rem; font-weight: 700; color: #0d9488; background: #ccfbf1; padding: 3px 8px; border-radius: 4px; margin-bottom: 8px; align-self: flex-start; }
+        .card-title { font-size: 1.25rem; font-weight: 700; color: #0f172a; margin-bottom: 4px; }
+        .card-subtitle { font-size: 0.92rem; color: #64748b; margin-bottom: 14px; font-weight: 500; }
+        
+        .card-info { font-size: 0.9rem; color: #334155; line-height: 1.6; margin-bottom: 16px; flex: 1; }
+        .card-info ul { list-style: disc; padding-left: 18px; margin-top: 6px; }
+        .card-info li { margin-bottom: 4px; }
+        
+        .card-footer { border-top: 1px solid #f1f5f9; padding-top: 12px; font-size: 0.85rem; color: #64748b; }
+        
+        footer { text-align: center; padding: 30px 20px; background: #0f172a; color: #94a3b8; font-size: 0.88rem; margin-top: auto; }
+        
+        @media (max-width: 768px) {
+            .sidebar { position: relative; width: 100%; height: auto; }
+            .main-wrapper { margin-left: 0; }
+            body { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+
+<aside class="sidebar">
+    <a href="index_kr.html" class="sidebar-brand">한국돌봄로봇협동조합<span>Korea Co-op of Care Robots</span></a>
+    <ul class="sidebar-menu">
+        <li><a href="index_kr.html">조합 소개</a></li>
+        <li><a href="members_kr.html" class="active">조합원 소개</a></li>
+        <li><a href="products_kr.html">제품 및 기술</a></li>
+        <li><a href="contact_kr.html">오시는 길 / 문의</a></li>
+    </ul>
+</aside>
+
+<div class="main-wrapper">
+    <div class="top-lang-bar">
+        <div class="lang-switch">
+            <span>🌐</span>
+            <a href="members_kr.html" class="active">🇰🇷 KOR</a>
+            <span style="color:#475569;">|</span>
+            <a href="members.html">🇺🇸 ENG</a>
+        </div>
+    </div>
+
+    <header>
+        <div class="badge">KCCR MEMBERS</div>
+        <h1 class="page-title">한국돌봄로봇협동조합 조합원 소개</h1>
+        <p class="page-subtitle">대한민국 돌봄로봇 산업의 기술 혁신과 생태계 확장을 선도하는 임원진 및 조합원</p>
+    </header>
+
+    <main>
+        <div class="tab-nav">
+            <button class="tab-btn active" onclick="filterCategory('all', this)">전체 보기</button>
+            <button class="tab-btn" onclick="filterCategory('exec', this)">임원진</button>
+            <button class="tab-btn" onclick="filterCategory('corp', this)">법인 조합원 (9개사)</button>
+            <button class="tab-btn" onclick="filterCategory('indiv', this)">개인 조합원 (11인)</button>
+        </div>
+
+        <!-- 1. 임원진 -->
+        <section id="section-exec" class="member-section">
+            <div class="section-header">
+                <h2>임원진</h2>
+                <span>Executive Board</span>
+            </div>
+            <div class="member-grid">
+                <!-- 이사장 김경환 -->
+                <div class="member-card">
+                    <div class="card-img-wrap" data-img-name="김경환"></div>
+                    <div class="card-body">
+                        <span class="card-tag">이사장</span>
+                        <div class="card-title">김경환</div>
+                        <div class="card-subtitle">㈜엔티로봇 대표이사</div>
+                        <div class="card-info">
+                            <ul>
+                                <li>한국돌봄로봇협동조합(KCCR) 이사장</li>
+                                <li>의료·재활·돌봄 로봇 및 제조업용 로봇 SI 원천 제어 기술 총괄</li>
+                            </ul>
+                        </div>
+                        <div class="card-footer">📍 주소: 서울특별시 금천구 벚꽃로 244, 1507호</div>
+                    </div>
+                </div>
+
+                <!-- 이사 이정환 -->
+                <div class="member-card">
+                    <div class="card-img-wrap" data-img-name="이정환"></div>
+                    <div class="card-body">
+                        <span class="card-tag">이사</span>
+                        <div class="card-title">이정환 교수</div>
+                        <div class="card-subtitle">건국대학교 의학공학부 교수</div>
+                        <div class="card-info">
+                            <ul>
+                                <li>연세대 의공학 박사, 전 삼성종합기술원</li>
+                                <li>퍼베이시브 헬스케어 웨어러블/무선 기기, 헬스케어 로봇, 생체 신호 처리 및 HRV 분석 전문</li>
+                            </ul>
+                        </div>
+                        <div class="card-footer">📍 연구실: 충북 충주시 충원대로 268</div>
+                    </div>
+                </div>
+
+                <!-- 이사 배영걸 -->
+                <div class="member-card">
+                    <div class="card-img-wrap" data-img-name="배영걸"></div>
+                    <div class="card-body">
+                        <span class="card-tag">이사</span>
+                        <div class="card-title">배영걸 박사</div>
+                        <div class="card-subtitle">㈜에이블에이아이 기술이사(CTO)</div>
+                        <div class="card-info">
+                            <ul>
+                                <li>충남대 기계설계 박사</li>
+                                <li>휴머노이드 모바일 매니퓰레이터 설계, 다목적 재활 및 의도 감지형 이승 보조 장치 개발 총괄</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 감사 김승종 -->
+                <div class="member-card">
+                    <div class="card-img-wrap" data-img-name="김승종"></div>
+                    <div class="card-body">
+                        <span class="card-tag">감사</span>
+                        <div class="card-title">김승종 교수</div>
+                        <div class="card-subtitle">고려대학교 의과대학 의공학교실 교수</div>
+                        <div class="card-info">
+                            <ul>
+                                <li>전 한국과학기술연구원(KIST) 바이오닉스연구단 단장</li>
+                                <li>국립재활원 수요자중심 돌봄로봇실증연구사업단 운영위원</li>
+                                <li>한국재활로봇학회 이사, 한국정밀공학회 사업이사</li>
+                            </ul>
+                        </div>
+                        <div class="card-footer">📍 연구실: 서울 성북구 고려대로 73 제1의학관 5303호</div>
+                    </div>
+                </div>
+
+                <!-- 고문 김승호 -->
+                <div class="member-card">
+                    <div class="card-img-wrap" data-img-name="김승호"></div>
+                    <div class="card-body">
+                        <span class="card-tag">고문</span>
+                        <div class="card-title">김승호 박사</div>
+                        <div class="card-subtitle">(사)대덕원자력포럼 연구소장 / 엔스코 기술고문</div>
+                        <div class="card-info">
+                            <ul>
+                                <li>연세대 기계공학 박사, 전 한국원자력연구원 원자력로봇연구부장</li>
+                                <li>조합 초대(1대) 이사장</li>
+                                <li>원자력 내방사선 로봇, 화재탐사 및 장애인 재활 훈련사 로봇 개발 총괄</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. 법인 조합원 (1~9번) -->
+        <section id="section-corp" class="member-section">
+            <div class="section-header">
+                <h2>법인 조합원</h2>
+                <span>Corporate Members (9개사)</span>
+            </div>
+            <div class="member-grid">
+                <!-- 1. 레인보우로보틱스 -->
+                <div class="member-card">
+                    <div class="card-img-wrap" data-img-name="레인보우로보틱스"></div>
+                    <div class="card-body">
+                        <span class="card-tag">1. 법인 조합원</span>
+                        <div class="card-title">㈜레인보우로보틱스</div>
+                        <div class="card-subtitle">대표: 오준호</div>
+                        <div class="card-info">
+                            <strong>[법인 소개]</strong>
+                            <ul>
+                                <li>로봇 핵심 부품과 제어 기술을 자체 개발하는 종합 로봇 플랫폼 기업</li>
+                                <li>제조 및 다양한 산업 환경 맞춤형 Full-Stack Robotics 공급</li>
+                            </ul>
+                            <strong style="margin-top:8px; display:inline-block;">[대표 제품]</strong>
+                            <ul>
+                                <li>협동로봇 RB/RB-N 시리즈 (NSF 위생 인증)</li>
+                                <li>이동형 양팔로봇 RB-Y, 자율주행 모바일 물류로봇 RBM</li>
+                                <li>사족보행 로봇 RBQ 시리즈 및 산업용 자동화 SI</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2. 로보티즈 -->
+                <div class="member-card">
+                    <div class="card-img-wrap" data-img-name="로보티즈"></div>
+                    <div class="card-body">
+                        <span class="card-tag">2. 법인 조합원</span>
+                        <div class="card-title">㈜로보티즈</div>
+                        <div class="card-subtitle">대표: 김병수</div>
+                        <div class="card-info">
+                            <strong>[법인 소개]</strong>
+                            <ul>
+                                <li>로봇 전용 액추에이터 및 지능형 자율주행 서비스 로봇 솔루션 전문 기업</li>
+                            </ul>
+                            <strong style="margin-top:8px; display:inline-block;">[대표 제품]</strong>
+                            <ul>
+                                <li>스마트 액추에이터 '다이나믹셀(DYNAMIXEL)'</li>
+                                <li>다이내믹 감속기 DYD</li>
+                                <li>물리적 AI 양팔로봇 'AI Worker', 실내외 배송로봇 'GAEMI'</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3. 새온 -->
+                <div class="member-card">
+                    <div class="card-img-wrap" data-img-name="새온"></div>
+                    <div class="card-body">
+                        <span class="card-tag">3. 법인 조합원</span>
+                        <div class="card-title">㈜새온</div>
+                        <div class="card-subtitle">로봇융합 및 물류 모빌리티</div>
+                        <div class="card-info">
+                            <strong>[법인 소개]</strong>
+                            <ul>
+                                <li>로봇융합 및 스마트 물류 모빌리티 제어 기술 전문 기업</li>
+                            </ul>
+                            <strong style="margin-top:8px; display:inline-block;">[대표 제품]</strong>
+                            <ul>
+                                <li>AI 교육용 자율주행 로봇 '알티노 AI'</li>
+                                <li>스마트 물류 모빌리티(AMR, AGV, OHT) 제어기 및 통합 운영 플랫폼</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4. 휠라인 -->
+                <div class="member-card">
+                    <div class="card-img-wrap" data-img-name="휠라인"></div>
+                    <div class="card-body">
+                        <span class="card-tag">4. 법인 조합원</span>
+                        <div class="card-title">㈜휠라인</div>
+                        <div class="card-subtitle">맞춤형 모빌리티 전문</div>
+                        <div class="card-info">
+                            <strong>[법인 소개]</strong>
+                            <ul>
+                                <li>맞춤형 보조공학 모빌리티 및 휠체어 전문 제조 기업</li>
+                            </ul>
+                            <strong style="margin-top:8px; display:inline-block;">[대표 제품]</strong>
+                            <ul>
+                                <li>활동형 및 스포츠 휠체어 (제니스 / 피닉스 시리즈)</li>
+                                <li>노인요양 보조기기 및 차세대 스마트 전동 모빌리티</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 5. 제이엔티 -->
+                <div class="member-card">
+                    <div class="card-img-wrap" data-img-name="제이엔티"></div>
+                    <div class="card-body">
+                        <span class="card-tag">5. 법인 조합원</span>
+                        <div class="card-title">제이엔티㈜</div>
+                        <div class="card-subtitle">대표: 전승원</div>
+                        <div class="card-info">
+                            <strong>[법인 소개]</strong>
+                            <ul>
+                                <li>대전테크노밸리 위치 엔지니어링 전문 기업</li>
+                                <li>구조시험장치, 정밀부품 제작 및 돌봄·서비스 로봇 전략 사업 추진</li>
+                            </ul>
+                            <strong style="margin-top:8px; display:inline-block;">[대표 제품]</strong>
+                            <ul>
+                                <li>보행 훈련사 로봇 / 보행보조 로봇 / 이동 로봇</li>
+                                <li>항공/우주/방산 연구 시험 로봇 및 정수장비 시스템</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 6. 엔티로봇 -->
+                <div class="member-card">
+                    <div class="card-img-wrap" data-img-name="엔티로봇"></div>
+                    <div class="card-body">
+                        <span class="card-tag">6. 법인 조합원</span>
+                        <div class="card-title">㈜엔티로봇</div>
+                        <div class="card-subtitle">대표: 김경환</div>
+                        <div class="card-info">
+                            <strong>[법인 소개]</strong>
+                            <ul>
+                                <li><strong>의료-재활-돌봄 로봇, 제조업용 로봇 SI</strong> 전문 기업</li>
+                            </ul>
+                            <strong style="margin-top:8px; display:inline-block;">[대표 제품]</strong>
+                            <ul>
+                                <li>의료 및 돌봄 로봇 플랫폼</li>
+                                <li>정밀 모션 제어 시스템 및 산업 현장 맞춤형 로봇 SI 솔루션</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 7. 스위스아미에트 -->
+                <div class="member-card">
+                    <div class="card-img-wrap" data-img-name="스위스아미에트"></div>
+                    <div class="card-body">
+                        <span class="card-tag">7. 법인 조합원</span>
+                        <div class="card-title">스위스아미에트㈜</div>
+                        <div class="card-subtitle">대표: 주재현</div>
+                        <div class="card-info">
+                            <strong>[법인 소개]</strong>
+                            <ul>
+                                <li>초정밀 마이크로 모터 및 모션 제어 시스템 공급 전문 기업</li>
+                            </ul>
+                            <strong style="margin-top:8px; display:inline-block;">[대표 제품]</strong>
+                            <ul>
+                                <li>FAULHABER 초정밀 DC/BLDC 마이크로 모터 (SXR, BXT)</li>
+                                <li>고분해능 엔코더, 유성 기어헤드 및 모션 컨트롤러</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 8. 에이투마인드 (요청 반영) -->
+                <div class="member-card">
+                    <div class="card-img-wrap" data-img-name="에이투마인드"></div>
+                    <div class="card-body">
+                        <span class="card-tag">8. 법인 조합원</span>
+                        <div class="card-title">㈜에이투마인드</div>
+                        <div class="card-subtitle">대표: 박용운</div>
+                        <div class="card-info">
+                            <strong>[법인 소개]</strong>
+                            <ul>
+                                <li>기술 정직과 상호협력을 기반으로 인공지능 및 자율로봇 분야의 솔루션을 개발하는 기업</li>
+                                <li>경쟁력 있는 AI-Edge-Computing 기술을 활용하여 지능형 감시 및 자율사물 도메인 제품의 운용성 증대</li>
+                                <li>가상데이터 생성 기술 개발에 집중하여 에지 AI 역량을 강화하고 다양한 산업 분야의 로봇 및 자율시스템 지원</li>
+                            </ul>
+                            <strong style="margin-top:8px; display:inline-block;">[대표 키워드 및 기술]</strong>
+                            <ul>
+                                <li>AI Edge Computing, 자율로봇, 가상데이터생성, 지능형감시</li>
+                                <li>독거노인 및 요양시설 어르신 건강지킴이 AI 돌봄 솔루션</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 9. 노비텍 -->
+                <div class="member-card">
+                    <div class="card-img-wrap" data-img-name="노비텍"></div>
+                    <div class="card-body">
+                        <span class="card-tag">9. 법인 조합원</span>
+                        <div class="card-title">㈜노비텍</div>
+                        <div class="card-subtitle">대표: 이준영</div>
+                        <div class="card-info">
+                            <strong>[법인 소개]</strong>
+                            <ul>
+                                <li>ITS용 카메라, Robot Vision 및 고정밀 광학 센서 제조 기업</li>
+                            </ul>
+                            <strong style="margin-top:8px; display:inline-block;">[대표 제품]</strong>
+                            <ul>
+                                <li>머신비전 카메라 (i-Nova2, i-Nova3, i-Nova4 시리즈)</li>
+                                <li>초고속 3D 레이저 스캐닝 센서 'Swing3D'</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. 개인 조합원 (10~20번) -->
+        <section id="section-indiv" class="member-section">
+            <div class="section-header">
+                <h2>개인 조합원</h2>
+                <span>Individual Members (11인)</span>
+            </div>
+            <div class="member-grid">
+                <!-- 10. 민노아 -->
+                <div class="member-card">
+                    <div class="card-img-wrap" data-img-name="민노아"></div>
+                    <div class="card-body">
+                        <span class="card-tag">10. 개인 조합원</span>
+                        <div class="card-title">민노아 연구원</div>
+                        <div class="card-subtitle">한국돌봄로봇협동조합 전문위원 / 연구원</div>
+                        <div class="card-info">
+                            <ul>
+                                <li>로봇 메커니즘 설계 및 정밀 모션 제어 연구</li>
+                                <li>돌봄로봇 산학연 실증 평가 전문</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 11. 오준호 -->
+                <div class="member-card">
+                    <div class="card-img-wrap" data-img-name="오준호"></div>
+                    <div class="card-body">
+                        <span class="card-tag">11. 개인 조합원</span>
+                        <div class="card-title">오준호 명예교수</div>
+                        <div class="card-subtitle">KAIST 명예교수 / ㈜레인보우로보틱스 CTO</div>
+                        <div class="card-info">
+                            <ul>
+                                <li>대한민국 최초 이족보행 휴머노이드 로봇 'HUBO' 총괄 개발</li>
+                                <li>로봇 메카트로닉스 분야 석학</li>
+                            </ul>
+                        </div>
+                        <div class="card-footer">📍 대전 유성구 테크노2로 266</div>
+                    </div>
+                </div>
+
+                <!-- 12. 이준영 -->
+                <div class="member-card">
+                    <div class="card-img-wrap" data-img-name="이준영"></div>
+                    <div class="card-body">
+                        <span class="card-tag">12. 개인 조합원</span>
+                        <div class="card-title">이준영 대표</div>
+                        <div class="card-subtitle">㈜노비텍 대표이사</div>
+                        <div class="card-info">
+                            <ul>
+                                <li>ITS 및 로봇 비전 시스템, 초고속 3D 광학 센싱 솔루션 개발</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 13. 김동화 -->
+                <div class="member-card">
+                    <div class="card-img-wrap" data-img-name="김동화"></div>
+                    <div class="card-body">
+                        <span class="card-tag">13. 개인 조합원</span>
+                        <div class="card-title">김동화 명예교수</div>
+                        <div class="card-subtitle">한밭대학교(구 대전산업대) 명예교수</div>
+                        <div class="card-info">
+                            <ul>
+                                <li>돌봄로봇 제어 알고리즘 및 인간-로봇 상호작용(HRI) 연구</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 14. 박성민 -->
+                <div class="member-card">
+                    <div class="card-img-wrap" data-img-name="박성민"></div>
+                    <div class="card-body">
+                        <span class="card-tag">14. 개인 조합원</span>
+                        <div class="card-title">박성민 대표</div>
+                        <div class="card-subtitle">와에이아이(WHA-AI) 대표이사</div>
+                        <div class="card-info">
+                            <ul>
+                                <li>120kg 하중 대응 환자 이승 보조 로봇 개발</li>
+                                <li>발보조기, EMG 센서 기반 의수 및 동적 인공발 등 보조공학기기 전문</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 15. 정세영 -->
+                <div class="member-card">
+                    <div class="card-img-wrap" data-img-name="정세영"></div>
+                    <div class="card-body">
+                        <span class="card-tag">15. 개인 조합원</span>
+                        <div class="card-title">정세영 대표</div>
+                        <div class="card-subtitle">지능형 로봇/비전 전문가</div>
+                        <div class="card-info">
+                            <ul>
+                                <li>지능형 수확로봇 시스템(RevoVI-H100) 개발</li>
+                                <li>작물 생장분석 로봇 및 비전 AI 자율수확 시스템 연구</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 16. 전승원 -->
+                <div class="member-card">
+                    <div class="card-img-wrap" data-img-name="전승원"></div>
+                    <div class="card-body">
+                        <span class="card-tag">16. 개인 조합원</span>
+                        <div class="card-title">전승원 대표</div>
+                        <div class="card-subtitle">제이엔티㈜ 대표이사</div>
+                        <div class="card-info">
+                            <ul>
+                                <li>보행 훈련사 및 보행보조 로봇, 이동 로봇 개발</li>
+                                <li>항공/우주 정밀 시험 장비 및 돌봄로봇 전략 R&D 총괄</li>
+                            </ul>
+                        </div>
+                        <div class="card-footer">📍 대전 유성구 테크노밸리</div>
+                    </div>
+                </div>
+
+                <!-- 17. 박용운 (요청 반영) -->
+                <div class="member-card">
+                    <div class="card-img-wrap" data-img-name="박용운"></div>
+                    <div class="card-body">
+                        <span class="card-tag">17. 개인 조합원</span>
+                        <div class="card-title">박용운 대표</div>
+                        <div class="card-subtitle">㈜에이투마인드 대표이사</div>
+                        <div class="card-info">
+                            <ul>
+                                <li>AI Edge Computing, 자율로봇, 가상데이터생성 및 지능형 감시 시스템 전문</li>
+                                <li>인공지능 핵심 기능을 활용한 독거노인 및 요양시설 어르신 건강지킴이 돌봄 솔루션 개발 총괄</li>
+                                <li>20년 이상의 임베디드 하드웨어 및 지능형 자율사물 시스템 제어 설계 경력</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 18. 이훈상 -->
+                <div class="member-card">
+                    <div class="card-img-wrap" data-img-name="이훈상"></div>
+                    <div class="card-body">
+                        <span class="card-tag">18. 개인 조합원</span>
+                        <div class="card-title">이훈상 대표</div>
+                        <div class="card-subtitle">㈜큐라코 대표이사</div>
+                        <div class="card-info">
+                            <ul>
+                                <li>자동배설케어로봇 '케어비데' 개발 총괄</li>
+                                <li>미국 연방의료보험(HCPCS) 신규코드 발급 및 보건복지부 장관 표창 수상</li>
+                            </ul>
+                        </div>
+                        <div class="card-footer">📍 경기 성남시 분당구</div>
+                    </div>
+                </div>
+
+                <!-- 19. 이호상 -->
+                <div class="member-card">
+                    <div class="card-img-wrap" data-img-name="이호상"></div>
+                    <div class="card-body">
+                        <span class="card-tag">19. 개인 조합원</span>
+                        <div class="card-title">이호상 사장</div>
+                        <div class="card-subtitle">㈜큐라코 사장(CTO)</div>
+                        <div class="card-info">
+                            <ul>
+                                <li>자동배설케어로봇 '케어비데' R&D 총괄</li>
+                                <li>2024년 범부처 10대 의료기기 대표과제 선정 및 보건복지부 장관 표창 수상</li>
+                            </ul>
+                        </div>
+                        <div class="card-footer">📍 경기 성남시 분당구</div>
+                    </div>
+                </div>
+
+                <!-- 20. 김성수 -->
+                <div class="member-card">
+                    <div class="card-img-wrap" data-img-name="김성수"></div>
+                    <div class="card-body">
+                        <span class="card-tag">20. 개인 조합원</span>
+                        <div class="card-title">김성수 명예교수</div>
+                        <div class="card-subtitle">충남대학교 메카트로닉스공학과 명예교수</div>
+                        <div class="card-info">
+                            <ul>
+                                <li>로봇 기구설계 및 동역학 해석 전공</li>
+                                <li>모듈 설계 기반 양팔 서비스 로봇 다물체 동역학 시뮬레이션 및 동작 제어 연구</li>
+                            </ul>
+                        </div>
+                        <div class="card-footer">📍 대전 유성구 대학로 99</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p><strong>한국돌봄로봇협동조합 (KCCR)</strong></p>
+        <p>주사무소: 서울특별시 금천구 벚꽃로 244, 1507호(가산동 벽산디지털밸리5차)</p>
+        <p>&copy; 2026 Korea Co-op of Care Robots (KCCR). All rights reserved.</p>
+    </footer>
+</div>
+
+<script>
+    const EXTENSIONS = ['png', 'jpg', 'jpeg', 'webp', 'svg'];
+
+    function tryLoadImage(baseName) {
+        return new Promise((resolve) => {
+            let extIdx = 0;
+            function checkNextExt() {
+                if (extIdx >= EXTENSIONS.length) return resolve(null);
+                const img = new Image();
+                const src = `photos/${baseName}.${EXTENSIONS[extIdx]}`;
+                img.onload = () => resolve(src);
+                img.onerror = () => { extIdx++; checkNextExt(); };
+                img.src = src;
+            }
+            checkNextExt();
+        });
+    }
+
+    async function setupCardImage(wrapper) {
+        const imgName = wrapper.getAttribute('data-img-name');
+        if (!imgName) {
+            wrapper.innerHTML = '<span class="no-img">사진 준비중</span>';
+            return;
+        }
+
+        const validSrc = await tryLoadImage(imgName);
+        if (validSrc) {
+            wrapper.innerHTML = `<img src="${validSrc}" alt="${imgName}">`;
+        } else {
+            wrapper.innerHTML = '<span class="no-img">사진 준비중</span>';
+        }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        document.querySelectorAll('.card-img-wrap').forEach(setupCardImage);
+    });
+
+    function filterCategory(cat, btn) {
+        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        const sections = {
+            'exec': document.getElementById('section-exec'),
+            'corp': document.getElementById('section-corp'),
+            'indiv': document.getElementById('section-indiv')
+        };
+
+        if (cat === 'all') {
+            Object.values(sections).forEach(sec => sec.style.display = 'block');
+        } else {
+            Object.keys(sections).forEach(key => {
+                sections[key].style.display = (key === cat) ? 'block' : 'none';
+            });
+        }
+    }
+</script>
+</body>
+</html>
