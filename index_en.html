@@ -1,19 +1,19 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>한국돌봄로봇협동조합 (KCCR)</title>
+    <title>Korea Co-op of Care Robots (KCCR)</title>
     <link rel="shortcut icon" href="photos/kccr_logo.jpg" type="image/jpeg">
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background-color: #f8fafc; color: #334155; line-height: 1.6; display: flex; min-height: 100vh; }
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; background-color: #f8fafc; color: #334155; line-height: 1.6; display: flex; min-height: 100vh; }
         
-        /* 사이드바 */
+        /* Sidebar */
         .sidebar { width: 260px; background-color: #0f172a; color: #ffffff; position: fixed; top: 0; left: 0; bottom: 0; padding: 30px 20px; overflow-y: auto; z-index: 100; display: flex; flex-direction: column; }
         .sidebar-brand { display: flex; flex-direction: column; align-items: center; text-align: center; text-decoration: none; color: #ffffff; margin-bottom: 28px; padding-bottom: 20px; border-bottom: 1px solid #1e293b; }
         .sidebar-brand img.brand-logo { width: 68px; height: 68px; object-fit: contain; margin-bottom: 12px; border-radius: 8px; background-color: #ffffff; padding: 4px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
-        .sidebar-brand .brand-text { font-size: 1.15rem; font-weight: 700; line-height: 1.35; color: #ffffff; }
+        .sidebar-brand .brand-text { font-size: 1.1rem; font-weight: 700; line-height: 1.35; color: #ffffff; }
         .sidebar-brand span { color: #38bdf8; font-size: 0.8rem; display: block; font-weight: 400; margin-top: 4px; }
         .sidebar-menu { list-style: none; flex: 1; }
         .sidebar-menu li { margin-bottom: 8px; }
@@ -21,7 +21,7 @@
         .sidebar-menu a:hover, .sidebar-menu a.active { color: #ffffff; background-color: #1e293b; font-weight: 600; }
         .sidebar-footer { font-size: 0.8rem; color: #64748b; border-top: 1px solid #1e293b; padding-top: 15px; }
         
-        /* 메인 레이아웃 */
+        /* Main Layout */
         .main-wrapper { margin-left: 260px; flex: 1; display: flex; flex-direction: column; min-width: 0; }
         .top-lang-bar { display: flex; justify-content: flex-end; align-items: center; padding: 12px 30px; background-color: #0b1120; border-bottom: 1px solid #1e293b; }
         .lang-switch { display: inline-flex; align-items: center; gap: 10px; font-size: 0.9rem; font-weight: 600; }
@@ -38,7 +38,7 @@
         .btn-primary { background-color: #0d9488; color: #ffffff; }
         .btn-outline { border: 1px solid #94a3b8; color: #ffffff; }
         
-        /* 프로필 이미지 래퍼 */
+        /* Profile Image Wrap */
         .profile-photo-container { flex: 0 0 240px; text-align: center; }
         .profile-img-wrap { width: 100%; max-width: 240px; height: 260px; border-radius: 10px; overflow: hidden; background-color: #f1f5f9; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 12px rgba(0,0,0,0.08); border: 1px solid #e2e8f0; }
         .profile-img-wrap img { width: 100%; height: 100%; object-fit: cover; }
@@ -59,107 +59,111 @@
 <body>
 
 <aside class="sidebar">
-    <a href="index.html" class="sidebar-brand">
-        <img src="photos/kccr_logo.jpg" alt="KCCR 로고" class="brand-logo" onerror="this.style.display='none';">
+    <a href="index_en.html" class="sidebar-brand">
+        <img src="photos/kccr_logo.jpg" alt="KCCR Logo" class="brand-logo" onerror="this.style.display='none';">
         <div class="brand-text">
-            한국돌봄로봇협동조합
-            <span>Korea Co-op of Care Robots</span>
+            Korea Co-op of Care Robots
+            <span>KCCR</span>
         </div>
     </a>
     <ul class="sidebar-menu">
-        <li><a href="index.html" class="active">조합 소개 (Home)</a></li>
-        <li><a href="about.html">조합 안내 & CI</a></li>
-        <li><a href="members.html">조합원 소개</a></li>
-        <li><a href="activities.html">주요 활동 및 사업</a></li>
-        <li><a href="join.html">조합 가입 안내</a></li>
+        <li><a href="index_en.html" class="active">About KCCR (Home)</a></li>
+        <li><a href="about_en.html">Overview & CI</a></li>
+        <li><a href="members.html">Members</a></li>
+        <li><a href="activities_en.html">Key Programs & Projects</a></li>
+        <li><a href="join_en.html">Join KCCR</a></li>
     </ul>
     <div class="sidebar-footer">
         <p>Email: contact@kccr.or.kr</p>
-        <p>Tel: 02-000-0000</p>
+        <p>Tel: +82-2-000-0000</p>
     </div>
 </aside>
 
 <div class="main-wrapper">
     <div class="top-lang-bar">
-        <div class="lang-switch">🌐 <a href="index.html" class="active">🇰🇷 KOR</a> | <a href="index_en.html">🇺🇸 ENG</a></div>
+        <div class="lang-switch">
+            🌐 <a href="index.html">🇰🇷 KOR</a> | <a href="index_en.html" class="active">🇺🇸 ENG</a>
+        </div>
     </div>
     
     <header>
         <div class="badge">KOREA CO-OP OF CARE ROBOTS</div>
-        <h1 class="page-title">대한민국 돌봄로봇 산업의 미래를 함께 만듭니다</h1>
-        <p style="color: #93c5fd; max-width: 750px; margin: 0 auto 20px;">한국돌봄로봇협동조합은 돌봄로봇 산·학·연 전문가 및 기업들이 상생 협력하여 초고령 사회의 돌봄 부담을 해소합니다.</p>
+        <h1 class="page-title">Shaping the Future of Care Robotics Together</h1>
+        <p style="color: #93c5fd; max-width: 780px; margin: 0 auto 20px;">
+            Korea Co-op of Care Robots (KCCR) brings together industry, academia, and research experts to alleviate the caregiving burden in a super-aged society through collaborative robotic innovation.
+        </p>
         <div>
-            <a href="members.html" class="btn btn-primary">조합원사 둘러보기</a>
-            <a href="join.html" class="btn btn-outline" style="margin-left: 8px;">조합 가입 신청</a>
+            <a href="members.html" class="btn btn-primary">Meet Our Members</a>
+            <a href="join_en.html" class="btn btn-outline" style="margin-left: 8px;">Membership Inquiry</a>
         </div>
     </header>
 
     <main>
-        <!-- 제2대 이사장 인사말 섹션 -->
+        <!-- President's Greetings Card -->
         <div class="card">
             <div class="greetings-layout" style="display: flex; gap: 32px; align-items: flex-start;">
                 <div class="profile-photo-container">
                     <div class="profile-img-wrap" data-img-name="김경환배경">
-                        <!-- fallback 직접 지정 -->
-                        <img src="photos/김경환배경.png" alt="김경환 이사장" onerror="this.onerror=null; this.src='photos/김경환배경.jpg';">
+                        <img src="photos/김경환배경.png" alt="President Kyung-Hwan Kim" onerror="this.onerror=null; this.src='photos/김경환배경.jpg';">
                     </div>
-                    <p style="margin-top: 12px; font-weight: 700; color: #0f172a; font-size: 1.1rem;">제2대 이사장 김경환</p>
-                    <p style="font-size: 0.88rem; color: #64748b;">한국돌봄로봇협동조합</p>
+                    <p style="margin-top: 12px; font-weight: 700; color: #0f172a; font-size: 1.1rem;">Kyung-Hwan Kim</p>
+                    <p style="font-size: 0.88rem; color: #64748b;">The 2nd President, KCCR</p>
                 </div>
                 
                 <div style="flex: 1; min-width: 280px;">
                     <h2 style="font-size: 1.45rem; color: #0f172a; margin-bottom: 18px; border-left: 4px solid #0d9488; padding-left: 12px; line-height: 1.35;">
-                        초고령 사회의 돌봄 위기,<br>로봇 기술과 연대로 함께 풀어가겠습니다.
+                        Overcoming the Super-Aged Society Care Crisis<br>Through Robotic Innovation and Global Solidarity
                     </h2>
                     
                     <p style="margin-bottom: 14px; line-height: 1.75; color: #334155;">
-                        안녕하십니까.<br>
-                        <strong>한국돌봄로봇협동조합(KCCR)</strong> 제2대 이사장 김경환입니다.
+                        Welcome to the <strong>Korea Co-op of Care Robots (KCCR)</strong>.<br>
+                        I am Kyung-Hwan Kim, the 2nd President of KCCR.
                     </p>
                     <p style="margin-bottom: 14px; line-height: 1.75; color: #334155;">
-                        대한민국은 지금 세계에서 가장 빠른 속도로 초고령 사회에 진입하였으며, 이미 사회 곳곳에서 고령자와 장애인의 돌봄 문제에 직면하고 있습니다. 현재 우리가 하고 있는 전통적인 방식만으로 돌봄 문제를 계속 가져가서는 국가적으로도 감당하기 어렵고, 한 개인과 가정의 삶에도 답을 찾기 힘든 한계에 부딪혔습니다.
+                        South Korea is entering a super-aged society at an unprecedented speed worldwide, facing urgent and complex caregiving challenges for seniors and persons with disabilities across all sectors of society. Continuing with traditional caregiving models and labor-intensive approaches poses unsustainable burdens on national welfare systems while leaving individuals and families without viable solutions.
                     </p>
                     <p style="margin-bottom: 14px; line-height: 1.75; color: #334155;">
-                        한국돌봄로봇협동조합은 <strong>로봇을 연구·개발하는 산·학·연 개인과 법인 조합원들이 뜻을 모아 2022년 7월에 설립</strong>하였습니다. 로봇 기술 하나가 돌봄의 복잡한 문제를 전적으로 다 풀 수는 없겠지만, 우리 조합은 <strong>돌봄로봇의 공통 핵심기술 개발, 사업화 지원, 그리고 국가의 돌봄 정책 어젠더에 적극 참여</strong>함으로써 돌봄 문제 해결에 실질적인 기여를 하고자 합니다.
+                        To address this critical challenge, <strong>KCCR was established in July 2022 by visionary researchers, innovators, and corporations</strong> dedicated to the research and development of robotics. While robotics alone cannot solve every dimension of caregiving, our cooperative is firmly committed to <strong>developing common core technologies, supporting commercialization, and actively contributing to national policy agendas</strong> to deliver practical and impactful solutions.
                     </p>
                     <p style="margin-bottom: 14px; line-height: 1.75; color: #334155;">
-                        나아가 글로벌 협력 또한 한층 강화하여 우리보다 앞서 유사한 위기를 겪고 있는 일본을 비롯한 세계 여러 나라와의 글로벌 얼라이언스를 확대해 나가겠습니다.
+                        Furthermore, we will actively expand global alliances and strategic partnerships with nations facing similar demographic transitions, including Japan and international partners across the globe.
                     </p>
                     <p style="margin-bottom: 24px; line-height: 1.75; color: #334155;">
-                        따뜻하고 지속 가능한 돌봄 생태계를 구축하는 이 뜻깊은 여정에 여러분 모두의 따뜻한 관심과 동참을 부탁드립니다.
+                        We cordially invite researchers, industry leaders, healthcare professionals, and all of you to join and support us in building a sustainable and compassionate caregiving ecosystem.
                     </p>
                     
                     <p style="text-align: right; font-weight: 700; color: #0f172a; font-size: 1.05rem; line-height: 1.6;">
-                        2026년<br>
-                        한국돌봄로봇협동조합 제2대 이사장 <span style="font-size: 1.15rem; color: #1e3a8a;">김경환</span> 올림
+                        2026<br>
+                        <strong>Kyung-Hwan Kim</strong><br>
+                        <span style="font-size: 0.95rem; color: #1e3a8a; font-weight: 600;">The 2nd President, Korea Co-op of Care Robots (KCCR)</span>
                     </p>
                 </div>
             </div>
         </div>
 
-        <!-- 주요 사업 카드 -->
+        <!-- Key Programs & Missions Card -->
         <div class="card">
-            <h2 style="font-size: 1.3rem; color: #0f172a; margin-bottom: 16px; border-left: 4px solid #0d9488; padding-left: 10px;">주요 사업 및 핵심 역량</h2>
+            <h2 style="font-size: 1.3rem; color: #0f172a; margin-bottom: 16px; border-left: 4px solid #0d9488; padding-left: 10px;">Key Initiatives & Core Capabilities</h2>
             <ul style="padding-left: 20px; line-height: 1.85; color: #475569;">
-                <li><strong>산학연 R&D 및 공통기술 개발:</strong> 돌봄로봇 제조기업, 의료·재활 연구진 간 공동 기술 융합 플랫폼 구축</li>
-                <li><strong>현장 실증 및 사업화 지원:</strong> 수요자 중심 돌봄로봇 실증 테스트베드 운영 및 안전·품질 표준화 지원</li>
-                <li><strong>제도 및 국가 정책 제안:</strong> 노인장기요양보험 복지급여 품목 연계 및 국가 돌봄 정책 어젠더 선도</li>
-                <li><strong>글로벌 얼라이언스 확대:</strong> 일본 등 해외 유관 기관·기업과의 국제 교류 및 기술 협력 네트워크 구축</li>
+                <li><strong>Collaborative R&D & Core Technology:</strong> Building shared technical convergence platforms connecting care robot manufacturers, medical specialists, and rehabilitation engineers.</li>
+                <li><strong>Field Testing & Commercialization:</strong> Operating user-centric clinical testbeds and advancing safety and quality standardization for care robotics.</li>
+                <li><strong>Policy Advocacy & Institutional Support:</strong> Proactively proposing policy agendas, including long-term care insurance benefit item registration and public support frameworks.</li>
+                <li><strong>Global Alliances & International Networking:</strong> Fostering joint research, technology exchange, and cross-border cooperation with Japan and global robotics networks.</li>
             </ul>
         </div>
     </main>
 
     <footer>
         <div class="footer-brand">
-            <img src="photos/kccr_logo.jpg" alt="KCCR 로고" onerror="this.style.display='none';">
-            <strong style="color: #f1f5f9;">한국돌봄로봇협동조합 (KCCR)</strong>
+            <img src="photos/kccr_logo.jpg" alt="KCCR Logo" onerror="this.style.display='none';">
+            <strong style="color: #f1f5f9;">Korea Co-op of Care Robots (KCCR)</strong>
         </div>
-        <p>주사무소: 서울특별시 금천구 벚꽃로 244, 1507호(가산동 벽산디지털밸리5차) | Tel: 02-000-0000 | Email: contact@kccr.or.kr</p>
+        <p>Head Office: #1507 Byuksan Digital Valley 5th, 244 Beotkkot-ro, Geumcheon-gu, Seoul, Republic of Korea | Tel: +82-2-000-0000 | Email: contact@kccr.or.kr</p>
         <p>&copy; 2026 Korea Co-op of Care Robots (KCCR). All rights reserved.</p>
     </footer>
 </div>
 
-<!-- 이미지 확장자 자동 대응 스크립트 -->
+<!-- Image Extension Auto-fallback Script -->
 <script>
     const EXTENSIONS = ['png', 'jpg', 'jpeg', 'webp', 'PNG', 'JPG'];
 
@@ -184,7 +188,7 @@
             const imgName = wrap.getAttribute('data-img-name');
             const validSrc = await tryLoadImage(imgName);
             if (validSrc) {
-                wrap.innerHTML = `<img src="${validSrc}" alt="김경환 이사장">`;
+                wrap.innerHTML = `<img src="${validSrc}" alt="Kyung-Hwan Kim, President">`;
             }
         }
     });
