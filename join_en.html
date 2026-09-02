@@ -1,74 +1,116 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Membership Guide - KCCR</title>
-    <link rel="shortcut icon" href="photos/kccr_logo.jpg" type="image/jpeg">
-    <style>* { box-sizing: border-box; margin: 0; padding: 0; }
-body { font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background-color: #f8fafc; color: #334155; line-height: 1.6; display: flex; min-height: 100vh; }
-/* 로고가 텍스트 위에 올라오도록 flex-direction: column 및 중앙 정렬 적용 */
-.sidebar { width: 260px; background-color: #0f172a; color: #ffffff; position: fixed; top: 0; left: 0; bottom: 0; padding: 30px 20px; overflow-y: auto; z-index: 100; display: flex; flex-direction: column; }
-.sidebar-brand { display: flex; flex-direction: column; align-items: center; text-align: center; text-decoration: none; color: #ffffff; margin-bottom: 28px; padding-bottom: 20px; border-bottom: 1px solid #1e293b; }
-.sidebar-brand img.brand-logo { width: 68px; height: 68px; object-fit: contain; margin-bottom: 12px; border-radius: 8px; background-color: #ffffff; padding: 4px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
-.sidebar-brand .brand-text { font-size: 1.15rem; font-weight: 700; line-height: 1.35; color: #ffffff; }
-.sidebar-brand span { color: #38bdf8; font-size: 0.8rem; display: block; font-weight: 400; margin-top: 4px; }
-.sidebar-menu { list-style: none; flex: 1; }
-.sidebar-menu li { margin-bottom: 8px; }
-.sidebar-menu a { color: #94a3b8; text-decoration: none; font-size: 0.95rem; display: block; padding: 10px 14px; border-radius: 6px; transition: all 0.2s; }
-.sidebar-menu a:hover, .sidebar-menu a.active { color: #ffffff; background-color: #1e293b; font-weight: 600; }
-.sidebar-footer { font-size: 0.8rem; color: #64748b; border-top: 1px solid #1e293b; padding-top: 15px; }
-.main-wrapper { margin-left: 260px; flex: 1; display: flex; flex-direction: column; min-width: 0; }
-.top-lang-bar { display: flex; justify-content: flex-end; align-items: center; padding: 12px 30px; background-color: #0b1120; border-bottom: 1px solid #1e293b; }
-.lang-switch { display: inline-flex; align-items: center; gap: 10px; font-size: 0.9rem; font-weight: 600; }
-.lang-switch a { text-decoration: none; color: #94a3b8; padding: 4px 10px; border-radius: 6px; transition: all 0.2s; }
-.lang-switch a.active { color: #0d9488; background-color: #ffffff; }
-header { background: linear-gradient(135deg, #1e3a8a 0%, #0f172a 100%); color: white; padding: 50px 25px; text-align: center; border-bottom: 4px solid #0d9488; }
-.badge { display: inline-block; background-color: rgba(13, 148, 136, 0.25); border: 1px solid #0d9488; color: #5eead4; padding: 4px 14px; border-radius: 20px; font-size: 0.85rem; font-weight: 600; margin-bottom: 12px; }
-h1.page-title { font-size: 2.1rem; font-weight: 800; margin-bottom: 8px; }
-main { max-width: 1100px; margin: 35px auto; padding: 0 25px; width: 100%; }
-.card { background: #ffffff; border-radius: 10px; border: 1px solid #e2e8f0; padding: 25px; margin-bottom: 25px; box-shadow: 0 2px 4px rgba(0,0,0,0.02); }
-.btn { display: inline-block; padding: 10px 20px; border-radius: 6px; font-weight: 600; text-decoration: none; }
-.btn-primary { background-color: #0d9488; color: #ffffff; }
-.btn-outline { border: 1px solid #94a3b8; color: #ffffff; }
-footer { background: #0f172a; color: #94a3b8; text-align: center; padding: 30px 20px; font-size: 0.85rem; margin-top: auto; border-top: 1px solid #1e293b; }
-.footer-brand { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; margin-bottom: 12px; }
-.footer-brand img { width: 40px; height: 40px; object-fit: contain; background: #fff; padding: 2px; border-radius: 4px; }
-@media (max-width: 768px) { .sidebar { position: relative; width: 100%; height: auto; } .main-wrapper { margin-left: 0; } body { flex-direction: column; } }</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Membership Application Guide - KCCR</title>
+    <link rel="shortcut icon" href="photos/kccr_logo.png" type="image/png">
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background-color: #f8fafc; color: #334155; line-height: 1.6; display: flex; min-height: 100vh; }
+        .sidebar { width: 260px; background-color: #0f172a; color: #ffffff; position: fixed; top: 0; left: 0; bottom: 0; padding: 30px 20px; overflow-y: auto; z-index: 100; display: flex; flex-direction: column; }
+        .sidebar-brand { display: flex; flex-direction: column; align-items: center; text-align: center; text-decoration: none; color: #ffffff; margin-bottom: 28px; padding-bottom: 20px; border-bottom: 1px solid #1e293b; }
+        .sidebar-brand img.brand-logo { width: 68px; height: 68px; object-fit: contain; margin-bottom: 12px; border-radius: 8px; background-color: #ffffff; padding: 4px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        .sidebar-brand .brand-text { font-size: 1.15rem; font-weight: 700; line-height: 1.35; color: #ffffff; }
+        .sidebar-brand span { color: #38bdf8; font-size: 0.8rem; display: block; font-weight: 400; margin-top: 4px; }
+        .sidebar-menu { list-style: none; flex: 1; }
+        .sidebar-menu li { margin-bottom: 8px; }
+        .sidebar-menu a { color: #94a3b8; text-decoration: none; font-size: 0.95rem; display: block; padding: 10px 14px; border-radius: 6px; transition: all 0.2s; }
+        .sidebar-menu a:hover, .sidebar-menu a.active { color: #ffffff; background-color: #1e293b; font-weight: 600; }
+        .main-wrapper { margin-left: 260px; flex: 1; display: flex; flex-direction: column; min-width: 0; }
+        .top-lang-bar { display: flex; justify-content: flex-end; align-items: center; padding: 12px 30px; background-color: #0b1120; border-bottom: 1px solid #1e293b; }
+        .lang-switch { display: inline-flex; align-items: center; gap: 10px; font-size: 0.9rem; font-weight: 600; }
+        .lang-switch a { text-decoration: none; color: #94a3b8; padding: 4px 10px; border-radius: 6px; transition: all 0.2s; }
+        .lang-switch a.active { color: #0d9488; background-color: #ffffff; }
+        header { background: linear-gradient(135deg, #1e3a8a 0%, #0f172a 100%); color: white; padding: 50px 25px; text-align: center; border-bottom: 4px solid #0d9488; }
+        .badge { display: inline-block; background-color: rgba(13, 148, 136, 0.25); border: 1px solid #0d9488; color: #5eead4; padding: 4px 14px; border-radius: 20px; font-size: 0.85rem; font-weight: 600; margin-bottom: 12px; }
+        h1.page-title { font-size: 2.1rem; font-weight: 800; margin-bottom: 8px; }
+        main { max-width: 1000px; margin: 35px auto; padding: 0 25px; width: 100%; }
+        .card { background: #ffffff; border-radius: 10px; border: 1px solid #e2e8f0; padding: 25px; margin-bottom: 25px; box-shadow: 0 2px 4px rgba(0,0,0,0.02); }
+        .card h2 { font-size: 1.35rem; color: #1e3a8a; margin-bottom: 15px; border-left: 4px solid #0d9488; padding-left: 10px; }
+        .member-types-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin: 20px 0; }
+        .member-type-card { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 22px; display: flex; flex-direction: column; }
+        .member-type-card h3 { color: #0f172a; font-size: 1.2rem; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; padding-bottom: 8px; border-bottom: 2px solid #e2e8f0; }
+        .member-type-card ul { list-style: none; padding-left: 0; font-size: 0.95rem; flex: 1; }
+        .member-type-card li { margin-bottom: 10px; position: relative; padding-left: 16px; color: #475569; }
+        .member-type-card li::before { content: "•"; position: absolute; left: 0; color: #0d9488; font-weight: bold; }
+        .highlight-text { color: #0f172a; font-weight: 600; }
+        .tag-notice { display: inline-block; font-size: 0.8rem; background-color: #fee2e2; color: #b91c1c; padding: 2px 6px; border-radius: 4px; font-weight: 600; margin-left: 4px; }
+        .step-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; margin: 15px 0 20px; }
+        .step-box { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 16px; text-align: center; }
+        .step-box strong { color: #0d9488; display: block; margin-bottom: 6px; font-size: 1rem; }
+        .step-box p { font-size: 0.9rem; color: #475569; }
+        .download-box { background: linear-gradient(135deg, #f0fdf4 0%, #e0f2fe 100%); border: 1.5px solid #0d9488; border-radius: 12px; padding: 28px; margin: 25px 0; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 24px; }
+        .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 13px 26px; border-radius: 6px; font-weight: 700; text-decoration: none; font-size: 1.02rem; transition: all 0.2s; }
+        .btn-primary { background-color: #0284c7; color: #ffffff; box-shadow: 0 4px 6px rgba(2, 132, 199, 0.2); }
+        .btn-primary:hover { background-color: #0369a1; transform: translateY(-1px); }
+        .qr-card { text-align: center; background: #ffffff; padding: 16px 20px; border-radius: 10px; border: 1px solid #cbd5e1; box-shadow: 0 2px 6px rgba(0,0,0,0.06); flex-shrink: 0; margin: 0 auto; }
+        .qr-card img { width: 140px; height: 140px; display: block; margin: 0 auto 8px; }
+        footer { background: #0f172a; color: #94a3b8; text-align: center; padding: 30px 20px; font-size: 0.85rem; margin-top: auto; border-top: 1px solid #1e293b; }
+        .footer-brand { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; margin-bottom: 12px; }
+        .footer-brand img { width: 40px; height: 40px; object-fit: contain; background: #fff; padding: 2px; border-radius: 4px; }
+        @media (max-width: 768px) { .sidebar { position: relative; width: 100%; height: auto; } .main-wrapper { margin-left: 0; } body { flex-direction: column; } .step-grid, .member-types-grid { grid-template-columns: 1fr; } .download-box { flex-direction: column; text-align: center; } }
+    </style>
 </head>
 <body>
-<aside class="sidebar">
-    <a href="index_en.html" class="sidebar-brand">
-        <img src="photos/kccr_logo.jpg" alt="KCCR Logo" class="brand-logo" onerror="this.style.display='none';">
-        <div class="brand-text">
-            Korea Co-op of Care Robots
-            <span>KCCR</span>
-        </div>
-    </a>
-    <ul class="sidebar-menu">
-        <li><a href="index_en.html">Home</a></li>
-        <li><a href="about_en.html">About & CI</a></li>
-        <li><a href="members_en.html">Members</a></li>
-        <li><a href="activities_en.html">Key Activities</a></li>
-        <li><a href="join_en.html" class="active">Membership Guide</a></li>
-    </ul>
-</aside>
+<div id="sidebar-container"></div>
 <div class="main-wrapper">
     <div class="top-lang-bar"><div class="lang-switch">🌐 <a href="join.html">🇰🇷 KOR</a> | <a href="join_en.html" class="active">🇺🇸 ENG</a></div></div>
     <header>
         <div class="badge">MEMBERSHIP</div>
-        <h1 class="page-title">Join KCCR</h1>
-        <p style="color: #93c5fd;">Become a member of the leading care robotics consortium.</p>
+        <h1 class="page-title">Membership Application Guide</h1>
+        <p style="color: #93c5fd;">Join KCCR to expand the care robotics ecosystem and pioneer the future together.</p>
     </header>
     <main>
         <div class="card">
-            <h3>Membership Process</h3>
-            <p style="color: #475569; margin-top: 8px;">Please contact our secretariat at contact@kccr.or.kr for application procedures.</p>
+            <h2>Membership Categories & Benefits</h2>
+            <div class="member-types-grid">
+                <div class="member-type-card">
+                    <h3>🤝 Regular Member (Corp / Indiv)</h3>
+                    <ul>
+                        <li><span class="highlight-text">Eligibility:</span> Robotics manufacturers, component makers, and academic/clinical researchers</li>
+                        <li><span class="highlight-text">Investment Standard:</span> <br>• <strong>Corporate:</strong> KRW 2,000,000 (20 shares)+<br>• <strong>Individual:</strong> KRW 200,000 (2 shares)+</li>
+                        <li><span class="highlight-text">Key Benefits:</span><br>• Voting rights in the General Assembly<br>• Participation in joint R&D and demonstration projects<br>• <strong>Discounts on workshops, conferences, and exhibition booths</strong></li>
+                    </ul>
+                </div>
+                <div class="member-type-card">
+                    <h3>🌟 Supporting Member</h3>
+                    <ul>
+                        <li><span class="highlight-text">Eligibility:</span> Organizations or individuals supporting KCCR's goals</li>
+                        <li><span class="highlight-text">Voting Status:</span> <span class="tag-notice">Non-voting</span> (No general assembly voting rights)</li>
+                        <li><span class="highlight-text">Key Benefits:</span><br>• Invitations and discounts for official events<br>• Access to policy reports and technical papers<br>• Promotion through official KCCR media channels</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <h2>Application Process (4 Steps)</h2>
+            <div class="step-grid">
+                <div class="step-box"><strong>STEP 1</strong><strong>Submission</strong><p>Submit application and documentation</p></div>
+                <div class="step-box"><strong>STEP 2</strong><strong>Review</strong><p>Board qualification review</p></div>
+                <div class="step-box"><strong>STEP 3</strong><strong>Payment</strong><p>Transfer investment or annual fee</p></div>
+                <div class="step-box"><strong>STEP 4</strong><strong>Onboarding</strong><p>Registration and project participation</p></div>
+            </div>
+        </div>
+        <div class="download-box">
+            <div style="flex: 1; min-width: 280px;">
+                <div style="display: inline-block; background-color: #0284c7; color: #ffffff; font-size: 0.82rem; font-weight: 700; padding: 4px 10px; border-radius: 20px; margin-bottom: 8px;">Application Form (.hwp)</div>
+                <h3 style="color: #0f172a; font-size: 1.3rem; margin-bottom: 8px;">Membership Application Document</h3>
+                <p style="color: #475569; font-size: 0.95rem; margin-bottom: 18px; line-height: 1.6;">Scan the QR code or click the download button below to receive the official form. Please complete and submit it to the secretariat email.</p>
+                <a href="https://drive.google.com/uc?export=download&id=18TiMPteHOZeOVNDpB_HJwUKmzBqRe1P2" class="btn btn-primary">📥 Download Application Form</a>
+                <div style="font-size: 0.85rem; color: #64748b; margin-top: 14px;">Contact: <strong style="color: #1e3a8a;">kccrobot@gmail.com</strong></div>
+            </div>
+            <div class="qr-card">
+                <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https%3A%2F%2Fdrive.google.com%2Fuc%3Fexport%3Ddownload%26id%3D18TiMPteHOZeOVNDpB_HJwUKmzBqRe1P2" alt="Download QR">
+                <span style="font-size: 0.84rem; font-weight: 700; color: #0284c7; display: block;">📱 Scan to Download</span>
+            </div>
         </div>
     </main>
     <footer>
-        <div class="footer-brand"><img src="photos/kccr_logo.jpg" alt="KCCR Logo"><strong>Korea Co-op of Care Robots</strong></div>
+        <div class="footer-brand"><img src="photos/kccr_logo.png" alt="KCCR Logo" onerror="this.src='photos/kccr_logo.jpg';"><strong>Korea Co-op of Care Robots</strong></div>
         <p>&copy; 2026 Korea Co-op of Care Robots (KCCR). All rights reserved.</p>
     </footer>
 </div>
+<script src="menu_en.js"></script>
 </body>
 </html>

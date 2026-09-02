@@ -1,79 +1,172 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About & CI - KCCR</title>
-    <link rel="shortcut icon" href="photos/kccr_logo.jpg" type="image/jpeg">
-    <style>* { box-sizing: border-box; margin: 0; padding: 0; }
-body { font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background-color: #f8fafc; color: #334155; line-height: 1.6; display: flex; min-height: 100vh; }
-/* 로고가 텍스트 위에 올라오도록 flex-direction: column 및 중앙 정렬 적용 */
-.sidebar { width: 260px; background-color: #0f172a; color: #ffffff; position: fixed; top: 0; left: 0; bottom: 0; padding: 30px 20px; overflow-y: auto; z-index: 100; display: flex; flex-direction: column; }
-.sidebar-brand { display: flex; flex-direction: column; align-items: center; text-align: center; text-decoration: none; color: #ffffff; margin-bottom: 28px; padding-bottom: 20px; border-bottom: 1px solid #1e293b; }
-.sidebar-brand img.brand-logo { width: 68px; height: 68px; object-fit: contain; margin-bottom: 12px; border-radius: 8px; background-color: #ffffff; padding: 4px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
-.sidebar-brand .brand-text { font-size: 1.15rem; font-weight: 700; line-height: 1.35; color: #ffffff; }
-.sidebar-brand span { color: #38bdf8; font-size: 0.8rem; display: block; font-weight: 400; margin-top: 4px; }
-.sidebar-menu { list-style: none; flex: 1; }
-.sidebar-menu li { margin-bottom: 8px; }
-.sidebar-menu a { color: #94a3b8; text-decoration: none; font-size: 0.95rem; display: block; padding: 10px 14px; border-radius: 6px; transition: all 0.2s; }
-.sidebar-menu a:hover, .sidebar-menu a.active { color: #ffffff; background-color: #1e293b; font-weight: 600; }
-.sidebar-footer { font-size: 0.8rem; color: #64748b; border-top: 1px solid #1e293b; padding-top: 15px; }
-.main-wrapper { margin-left: 260px; flex: 1; display: flex; flex-direction: column; min-width: 0; }
-.top-lang-bar { display: flex; justify-content: flex-end; align-items: center; padding: 12px 30px; background-color: #0b1120; border-bottom: 1px solid #1e293b; }
-.lang-switch { display: inline-flex; align-items: center; gap: 10px; font-size: 0.9rem; font-weight: 600; }
-.lang-switch a { text-decoration: none; color: #94a3b8; padding: 4px 10px; border-radius: 6px; transition: all 0.2s; }
-.lang-switch a.active { color: #0d9488; background-color: #ffffff; }
-header { background: linear-gradient(135deg, #1e3a8a 0%, #0f172a 100%); color: white; padding: 50px 25px; text-align: center; border-bottom: 4px solid #0d9488; }
-.badge { display: inline-block; background-color: rgba(13, 148, 136, 0.25); border: 1px solid #0d9488; color: #5eead4; padding: 4px 14px; border-radius: 20px; font-size: 0.85rem; font-weight: 600; margin-bottom: 12px; }
-h1.page-title { font-size: 2.1rem; font-weight: 800; margin-bottom: 8px; }
-main { max-width: 1100px; margin: 35px auto; padding: 0 25px; width: 100%; }
-.card { background: #ffffff; border-radius: 10px; border: 1px solid #e2e8f0; padding: 25px; margin-bottom: 25px; box-shadow: 0 2px 4px rgba(0,0,0,0.02); }
-.btn { display: inline-block; padding: 10px 20px; border-radius: 6px; font-weight: 600; text-decoration: none; }
-.btn-primary { background-color: #0d9488; color: #ffffff; }
-.btn-outline { border: 1px solid #94a3b8; color: #ffffff; }
-footer { background: #0f172a; color: #94a3b8; text-align: center; padding: 30px 20px; font-size: 0.85rem; margin-top: auto; border-top: 1px solid #1e293b; }
-.footer-brand { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; margin-bottom: 12px; }
-.footer-brand img { width: 40px; height: 40px; object-fit: contain; background: #fff; padding: 2px; border-radius: 4px; }
-@media (max-width: 768px) { .sidebar { position: relative; width: 100%; height: auto; } .main-wrapper { margin-left: 0; } body { flex-direction: column; } }</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About & CI - Korea Co-op of Care Robots (KCCR)</title>
+    <link rel="shortcut icon" href="photos/kccr_logo.png" type="image/png">
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background-color: #f8fafc; color: #334155; line-height: 1.6; display: flex; min-height: 100vh; }
+        .sidebar { width: 260px; background-color: #0f172a; color: #ffffff; position: fixed; top: 0; left: 0; bottom: 0; padding: 30px 20px; overflow-y: auto; z-index: 100; display: flex; flex-direction: column; }
+        .sidebar-brand { display: flex; flex-direction: column; align-items: center; text-align: center; text-decoration: none; color: #ffffff; margin-bottom: 28px; padding-bottom: 20px; border-bottom: 1px solid #1e293b; }
+        .sidebar-brand img.brand-logo { width: 68px; height: 68px; object-fit: contain; margin-bottom: 12px; border-radius: 8px; background-color: #ffffff; padding: 4px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        .sidebar-brand .brand-text { font-size: 1.15rem; font-weight: 700; line-height: 1.35; color: #ffffff; }
+        .sidebar-brand span { color: #38bdf8; font-size: 0.8rem; display: block; font-weight: 400; margin-top: 4px; }
+        .sidebar-menu { list-style: none; flex: 1; }
+        .sidebar-menu li { margin-bottom: 8px; }
+        .sidebar-menu a { color: #94a3b8; text-decoration: none; font-size: 0.95rem; display: block; padding: 10px 14px; border-radius: 6px; transition: all 0.2s; }
+        .sidebar-menu a:hover, .sidebar-menu a.active { color: #ffffff; background-color: #1e293b; font-weight: 600; }
+        .sidebar-footer { font-size: 0.8rem; color: #64748b; border-top: 1px solid #1e293b; padding-top: 15px; }
+        .main-wrapper { margin-left: 260px; flex: 1; display: flex; flex-direction: column; min-width: 0; }
+        .top-lang-bar { display: flex; justify-content: flex-end; align-items: center; padding: 12px 30px; background-color: #0b1120; border-bottom: 1px solid #1e293b; }
+        .lang-switch { display: inline-flex; align-items: center; gap: 10px; font-size: 0.9rem; font-weight: 600; }
+        .lang-switch a { text-decoration: none; color: #94a3b8; padding: 4px 10px; border-radius: 6px; transition: all 0.2s; }
+        .lang-switch a.active { color: #0d9488; background-color: #ffffff; }
+        header { background: linear-gradient(135deg, #1e3a8a 0%, #0f172a 100%); color: white; padding: 50px 25px; text-align: center; border-bottom: 4px solid #0d9488; }
+        .badge { display: inline-block; background-color: rgba(13, 148, 136, 0.25); border: 1px solid #0d9488; color: #5eead4; padding: 4px 14px; border-radius: 20px; font-size: 0.85rem; font-weight: 600; margin-bottom: 12px; }
+        h1.page-title { font-size: 2.1rem; font-weight: 800; margin-bottom: 8px; }
+        main { max-width: 1100px; margin: 35px auto; padding: 0 25px; width: 100%; }
+        .card { background: #ffffff; border-radius: 12px; border: 1px solid #e2e8f0; padding: 32px; margin-bottom: 28px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); }
+        .card h2 { font-size: 1.45rem; color: #0f172a; margin-bottom: 16px; border-left: 4px solid #0d9488; padding-left: 12px; line-height: 1.35; }
+        .card h3 { font-size: 1.15rem; color: #0f172a; margin: 24px 0 12px; }
+        .card p { font-size: 1rem; line-height: 1.75; margin-bottom: 14px; color: #334155; }
+        .ci-box { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 16px; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 10px; padding: 25px; margin: 20px 0; }
+        .ci-box img { width: 140px; height: 140px; object-fit: contain; border: 1px solid #cbd5e1; border-radius: 12px; padding: 8px; background: #fff; }
+        .info-table, .history-table { width: 100%; border-collapse: collapse; margin: 15px 0 20px; }
+        .info-table th, .info-table td, .history-table th, .history-table td { padding: 12px 14px; text-align: left; border-bottom: 1px solid #e2e8f0; font-size: 0.95rem; }
+        .info-table th, .history-table th { background-color: #f1f5f9; font-weight: 600; color: #0f172a; width: 25%; }
+        .history-table th:first-child { width: 22%; }
+        .badge-tag { display: inline-block; background-color: #e0f2fe; color: #0369a1; padding: 3px 8px; border-radius: 4px; font-size: 0.85rem; font-weight: 600; margin-right: 6px; margin-bottom: 4px; }
+        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-top: 15px; }
+        .gallery-item { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; overflow: hidden; text-align: center; }
+        .gallery-item img { width: 100%; height: 210px; object-fit: cover; display: block; }
+        .gallery-item .caption { padding: 10px; font-size: 0.88rem; color: #475569; font-weight: 500; }
+        .topics-grid { display: flex; gap: 20px; flex-wrap: wrap; margin-top: 15px; }
+        .topic-card { flex: 1; min-width: 280px; background: #f8fafc; border-radius: 8px; padding: 20px; border: 1px solid #e2e8f0; border-top: 3px solid #0d9488; }
+        .topic-card h3 { font-size: 1.1rem; color: #0f172a; margin-top: 0; margin-bottom: 12px; }
+        .topic-card ul { list-style-type: none; padding-left: 0; }
+        .topic-card li { position: relative; padding-left: 16px; margin-bottom: 8px; font-size: 0.93rem; color: #475569; }
+        .topic-card li::before { content: "•"; position: absolute; left: 0; color: #0d9488; font-weight: bold; }
+        .highlight-box { background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 8px; padding: 20px; margin: 15px 0; }
+        .highlight-box h4 { color: #166534; margin-bottom: 8px; font-size: 1.05rem; }
+        footer { background: #0f172a; color: #94a3b8; text-align: center; padding: 30px 20px; font-size: 0.85rem; margin-top: auto; border-top: 1px solid #1e293b; }
+        .footer-brand { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; margin-bottom: 12px; }
+        .footer-brand img { width: 40px; height: 40px; object-fit: contain; background: #fff; padding: 2px; border-radius: 4px; }
+        @media (max-width: 768px) { .sidebar { position: relative; width: 100%; height: auto; } .main-wrapper { margin-left: 0; } body { flex-direction: column; } }
+    </style>
 </head>
 <body>
-<aside class="sidebar">
-    <a href="index_en.html" class="sidebar-brand">
-        <img src="photos/kccr_logo.jpg" alt="KCCR Logo" class="brand-logo" onerror="this.style.display='none';">
-        <div class="brand-text">
-            Korea Co-op of Care Robots
-            <span>KCCR</span>
-        </div>
-    </a>
-    <ul class="sidebar-menu">
-        <li><a href="index_en.html">Home</a></li>
-        <li><a href="about_en.html" class="active">About & CI</a></li>
-        <li><a href="members_en.html">Members</a></li>
-        <li><a href="activities_en.html">Key Activities</a></li>
-        <li><a href="join_en.html">Membership Guide</a></li>
-    </ul>
-</aside>
+<div id="sidebar-container"></div>
 <div class="main-wrapper">
     <div class="top-lang-bar"><div class="lang-switch">🌐 <a href="about.html">🇰🇷 KOR</a> | <a href="about_en.html" class="active">🇺🇸 ENG</a></div></div>
     <header>
         <div class="badge">ABOUT KCCR</div>
-        <h1 class="page-title">About Us & Visual Identity</h1>
-        <p style="color: #93c5fd;">Empowering the future of care robotics through collaboration</p>
+        <h1 class="page-title">About KCCR & CI</h1>
+        <p style="color: #93c5fd; max-width: 750px; margin: 0 auto;">Introducing the vision, history, organizational structure, and key initiatives of KCCR.</p>
     </header>
     <main>
-        <div class="card" style="display: flex; flex-direction: column; align-items: center; text-align: center; gap: 18px;">
-            <img src="photos/kccr_logo.jpg" alt="KCCR Symbol" style="width: 160px; height: 160px; object-fit: contain; border: 1px solid #e2e8f0; border-radius: 12px; padding: 10px; background: #fff;">
-            <div>
-                <h3 style="font-size: 1.3rem; color: #0f172a; margin-bottom: 8px;">KCCR Visual Identity</h3>
-                <p style="color: #475569; font-size: 0.95rem; line-height: 1.7; max-width: 700px;">
-                    The official symbol mark represents human-centric care, precision robot engineering, and sustainable industry-academia cooperation.
-                </p>
+        <div class="card">
+            <h2>1. Mission & CI</h2>
+            <p>Korea Co-op of Care Robots (KCCR) was established to advance welfare robotics and improve the national caregiving infrastructure through autonomous, cooperative efforts.</p>
+            <div class="highlight-box">
+                <h4>Core Objectives & Background</h4>
+                <ul style="padding-left: 20px; line-height: 1.8; color: #166534;">
+                    <li><strong>Addressing Super-Aged Societies:</strong> Mitigating heavy physical workloads on healthcare workers and improving recipients' quality of life.</li>
+                    <li><strong>Joint R&D & Commercialization:</strong> Fostering collaboration among academia, research institutes, hospitals, and enterprises to develop and deploy field-tailored care robots.</li>
+                    <li><strong>Industrial Ecosystem Development:</strong> Standardizing core modular components (omni-wheels, AI vision, HRI) and conducting joint marketing.</li>
+                </ul>
+            </div>
+            <div class="ci-box">
+                <img src="photos/kccr_logo.png" alt="KCCR Symbol Mark" onerror="this.src='photos/kccr_logo.jpg';">
+                <div>
+                    <h3 style="font-size: 1.25rem; color: #0f172a; margin-bottom: 6px;">KCCR Visual Identity (CI)</h3>
+                    <p style="color: #475569; font-size: 0.95rem; line-height: 1.7; max-width: 680px; margin-bottom: 0;">
+                        The official symbol represents human-centered <strong>Care</strong>, advanced <strong>Robotics</strong>, and multidisciplinary <strong>Cooperation</strong>.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <h2>2. Key Milestones</h2>
+            <table class="history-table">
+                <thead><tr><th>Date</th><th>Milestone</th></tr></thead>
+                <tbody>
+                    <tr><td><strong>Aug 20, 2021</strong></td><td>Inaugural preparatory meeting for care robot cooperative (DISTEP)</td></tr>
+                    <tr><td><strong>Dec 28, 2021</strong></td><td>General Founding Assembly hosted at NT Robot Co., Ltd.</td></tr>
+                    <tr><td><strong>Apr 08, 2022</strong></td><td>Official cooperative registration (Daejeon Metropolitan City)</td></tr>
+                    <tr><td><strong>Jul 04, 2022</strong></td><td>Corporate registration completed (Inaugural President: Seung-Ho Kim)</td></tr>
+                    <tr><td><strong>Aug 18, 2022</strong></td><td>Founding ceremony held at Seoul Station Conference Hall</td></tr>
+                    <tr><td><strong>2023. 02 ~ 06</strong></td><td>Participated in national R&D programs for social vulnerability & demand-driven care robot demonstration</td></tr>
+                    <tr><td><strong>Aug 28, 2024</strong></td><td><strong>Head Office Relocation:</strong> Moved to #1507, 244 Beotkkot-ro, Geumcheon-gu, Seoul</td></tr>
+                    <tr><td><strong>Jul 28, 2025</strong></td><td><strong>Executive Board Reorganization:</strong> Inauguration of 2nd President Kyoung-Hwan Kim, Ph.D.</td></tr>
+                    <tr><td><strong>May 2026</strong></td><td>Commercialization initiative for Night Shift Nursing Rounding Robots</td></tr>
+                </tbody>
+            </table>
+            <h3>Founding Ceremony (August 18, 2022, Seoul Station)</h3>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="photos/20220818_1.jpg" alt="KCCR Ceremony 1" onerror="this.style.display='none';">
+                    <div class="caption">Commemorative Ceremony (Aug 2022)</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="photos/20220818_2.jpg" alt="KCCR Ceremony 2" onerror="this.style.display='none';">
+                    <div class="caption">General Assembly & Technical Exchange (Aug 2022)</div>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <h2>3. Organization & Members</h2>
+            <p>KCCR features a 100% STEM professional structure comprised of robotics corporations and research scientists.</p>
+            <table class="info-table">
+                <tbody>
+                    <tr><th>Official Website</th><td><a href="https://www.kccrobot.com" target="_blank" rel="noopener noreferrer" style="color: #0d9488; font-weight: 700; text-decoration: underline;">https://www.kccrobot.com</a></td></tr>
+                    <tr><th>Head Office</th><td>#1507, 244 Beotkkot-ro, Geumcheon-gu, Seoul, Republic of Korea</td></tr>
+                    <tr><th>President</th><td><strong>Kyoung-Hwan Kim, Ph.D.</strong> (CEO, NT Robot Co., Ltd.)</td></tr>
+                    <tr><th>Directors</th><td>Kyoung-Hwan Kim, Young-Geol Bae, Jeong-Whan Lee</td></tr>
+                    <tr><th>Auditor</th><td>Seung-Jong Kim</td></tr>
+                    <tr><th>Corporate Members (9)</th><td>
+                        <span class="badge-tag">NT Robot</span><span class="badge-tag">Rainbow Robotics</span><span class="badge-tag">ROBOTIS</span><span class="badge-tag">Wheel Line</span><span class="badge-tag">Saeon</span><span class="badge-tag">JNT</span><span class="badge-tag">A2Mind</span><span class="badge-tag">Novitec</span><span class="badge-tag">Swiss Amiet</span>
+                    </td></tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="card">
+            <h2>4. Major Initiatives</h2>
+            <div class="topics-grid">
+                <div class="topic-card">
+                    <h3>Night-time Nursing Rounding Robots</h3>
+                    <ul>
+                        <li>Omni-directional mobility in narrow ward environments with smooth S-curve control</li>
+                        <li>Low-light IR and 3D ToF vision fusion for patient monitoring and fall detection</li>
+                        <li>On-device voice AI and non-contact vital sign monitoring integrated with EMR/OCS</li>
+                    </ul>
+                </div>
+                <div class="topic-card">
+                    <h3>Transfer & Mobility Assistance</h3>
+                    <ul>
+                        <li>Smart power wheelchairs, standing & transfer assist devices, and walking gait trainers</li>
+                        <li>Automated toileting and shower-assist robotic capsules</li>
+                        <li>Standardized lightweight omni-wheel drive modules</li>
+                    </ul>
+                </div>
+                <div class="topic-card">
+                    <h3>Joint Marketing & Consulting</h3>
+                    <ul>
+                        <li>Cooperative brand promotion and joint pavilions at global robotics exhibitions</li>
+                        <li>Clinical validation testbeds (PoC) at tertiary hospitals and nursing homes</li>
+                        <li>Smart hospital process innovation consulting</li>
+                    </ul>
+                </div>
             </div>
         </div>
     </main>
     <footer>
-        <div class="footer-brand"><img src="photos/kccr_logo.jpg" alt="KCCR Logo"><strong>Korea Co-op of Care Robots</strong></div>
+        <div class="footer-brand"><img src="photos/kccr_logo.png" alt="KCCR Logo" onerror="this.src='photos/kccr_logo.jpg';"><strong style="color: #f1f5f9;">Korea Co-op of Care Robots (KCCR)</strong></div>
+        <p>Head Office: #1507, 244 Beotkkot-ro, Geumcheon-gu, Seoul, Republic of Korea | Tel: +82-2-000-0000 | Email: contact@kccr.or.kr</p>
         <p>&copy; 2026 Korea Co-op of Care Robots (KCCR). All rights reserved.</p>
     </footer>
 </div>
+<script src="menu_en.js"></script>
 </body>
 </html>

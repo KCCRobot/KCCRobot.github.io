@@ -4,194 +4,92 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Korea Co-op of Care Robots (KCCR)</title>
-    <link rel="shortcut icon" href="photos/kccr_logo.jpg" type="image/jpeg">
+    <link rel="shortcut icon" href="photos/kccr_logo.png" type="image/png">
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; background-color: #f8fafc; color: #334155; line-height: 1.6; display: flex; min-height: 100vh; }
-        
-        /* Sidebar */
+        body { font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background-color: #f8fafc; color: #334155; line-height: 1.6; display: flex; min-height: 100vh; }
         .sidebar { width: 260px; background-color: #0f172a; color: #ffffff; position: fixed; top: 0; left: 0; bottom: 0; padding: 30px 20px; overflow-y: auto; z-index: 100; display: flex; flex-direction: column; }
         .sidebar-brand { display: flex; flex-direction: column; align-items: center; text-align: center; text-decoration: none; color: #ffffff; margin-bottom: 28px; padding-bottom: 20px; border-bottom: 1px solid #1e293b; }
         .sidebar-brand img.brand-logo { width: 68px; height: 68px; object-fit: contain; margin-bottom: 12px; border-radius: 8px; background-color: #ffffff; padding: 4px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
-        .sidebar-brand .brand-text { font-size: 1.1rem; font-weight: 700; line-height: 1.35; color: #ffffff; }
+        .sidebar-brand .brand-text { font-size: 1.15rem; font-weight: 700; line-height: 1.35; color: #ffffff; }
         .sidebar-brand span { color: #38bdf8; font-size: 0.8rem; display: block; font-weight: 400; margin-top: 4px; }
         .sidebar-menu { list-style: none; flex: 1; }
         .sidebar-menu li { margin-bottom: 8px; }
         .sidebar-menu a { color: #94a3b8; text-decoration: none; font-size: 0.95rem; display: block; padding: 10px 14px; border-radius: 6px; transition: all 0.2s; }
         .sidebar-menu a:hover, .sidebar-menu a.active { color: #ffffff; background-color: #1e293b; font-weight: 600; }
         .sidebar-footer { font-size: 0.8rem; color: #64748b; border-top: 1px solid #1e293b; padding-top: 15px; }
-        
-        /* Main Layout */
         .main-wrapper { margin-left: 260px; flex: 1; display: flex; flex-direction: column; min-width: 0; }
         .top-lang-bar { display: flex; justify-content: flex-end; align-items: center; padding: 12px 30px; background-color: #0b1120; border-bottom: 1px solid #1e293b; }
         .lang-switch { display: inline-flex; align-items: center; gap: 10px; font-size: 0.9rem; font-weight: 600; }
         .lang-switch a { text-decoration: none; color: #94a3b8; padding: 4px 10px; border-radius: 6px; transition: all 0.2s; }
         .lang-switch a.active { color: #0d9488; background-color: #ffffff; }
-        
         header { background: linear-gradient(135deg, #1e3a8a 0%, #0f172a 100%); color: white; padding: 50px 25px; text-align: center; border-bottom: 4px solid #0d9488; }
         .badge { display: inline-block; background-color: rgba(13, 148, 136, 0.25); border: 1px solid #0d9488; color: #5eead4; padding: 4px 14px; border-radius: 20px; font-size: 0.85rem; font-weight: 600; margin-bottom: 12px; }
         h1.page-title { font-size: 2.1rem; font-weight: 800; margin-bottom: 8px; }
         main { max-width: 1100px; margin: 35px auto; padding: 0 25px; width: 100%; }
-        
         .card { background: #ffffff; border-radius: 12px; border: 1px solid #e2e8f0; padding: 32px; margin-bottom: 28px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); }
         .btn { display: inline-block; padding: 10px 20px; border-radius: 6px; font-weight: 600; text-decoration: none; }
         .btn-primary { background-color: #0d9488; color: #ffffff; }
         .btn-outline { border: 1px solid #94a3b8; color: #ffffff; }
-        
-        /* Profile Image Wrap */
         .profile-photo-container { flex: 0 0 240px; text-align: center; }
         .profile-img-wrap { width: 100%; max-width: 240px; height: 260px; border-radius: 10px; overflow: hidden; background-color: #f1f5f9; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 12px rgba(0,0,0,0.08); border: 1px solid #e2e8f0; }
         .profile-img-wrap img { width: 100%; height: 100%; object-fit: cover; }
-        
         footer { background: #0f172a; color: #94a3b8; text-align: center; padding: 30px 20px; font-size: 0.85rem; margin-top: auto; border-top: 1px solid #1e293b; }
         .footer-brand { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; margin-bottom: 12px; }
         .footer-brand img { width: 40px; height: 40px; object-fit: contain; background: #fff; padding: 2px; border-radius: 4px; }
-        
-        @media (max-width: 768px) {
-            .sidebar { position: relative; width: 100%; height: auto; }
-            .main-wrapper { margin-left: 0; }
-            body { flex-direction: column; }
-            .greetings-layout { flex-direction: column; align-items: center; }
-            .profile-photo-container { margin-bottom: 20px; }
-        }
+        @media (max-width: 768px) { .sidebar { position: relative; width: 100%; height: auto; } .main-wrapper { margin-left: 0; } body { flex-direction: column; } .greetings-layout { flex-direction: column; align-items: center; } .profile-photo-container { margin-bottom: 20px; } }
     </style>
 </head>
 <body>
-
-<aside class="sidebar">
-    <a href="index_en.html" class="sidebar-brand">
-        <img src="photos/kccr_logo.jpg" alt="KCCR Logo" class="brand-logo" onerror="this.style.display='none';">
-        <div class="brand-text">
-            Korea Co-op of Care Robots
-            <span>KCCR</span>
-        </div>
-    </a>
-    <ul class="sidebar-menu">
-        <li><a href="index_en.html" class="active">About KCCR (Home)</a></li>
-        <li><a href="about_en.html">Overview & CI</a></li>
-        <li><a href="members.html">Members</a></li>
-        <li><a href="activities_en.html">Key Programs & Projects</a></li>
-        <li><a href="join_en.html">Join KCCR</a></li>
-    </ul>
-    <div class="sidebar-footer">
-        <p>Email: contact@kccr.or.kr</p>
-        <p>Tel: +82-2-000-0000</p>
-    </div>
-</aside>
-
+<div id="sidebar-container"></div>
 <div class="main-wrapper">
-    <div class="top-lang-bar">
-        <div class="lang-switch">
-            🌐 <a href="index.html">🇰🇷 KOR</a> | <a href="index_en.html" class="active">🇺🇸 ENG</a>
-        </div>
-    </div>
-    
+    <div class="top-lang-bar"><div class="lang-switch">🌐 <a href="index.html">🇰🇷 KOR</a> | <a href="index_en.html" class="active">🇺🇸 ENG</a></div></div>
     <header>
         <div class="badge">KOREA CO-OP OF CARE ROBOTS</div>
         <h1 class="page-title">Shaping the Future of Care Robotics Together</h1>
-        <p style="color: #93c5fd; max-width: 780px; margin: 0 auto 20px;">
-            Korea Co-op of Care Robots (KCCR) brings together industry, academia, and research experts to alleviate the caregiving burden in a super-aged society through collaborative robotic innovation.
-        </p>
+        <p style="color: #93c5fd; max-width: 750px; margin: 0 auto 20px;">KCCR brings together industry, academia, research, and clinical experts to alleviate caregiving burdens in an aging society.</p>
         <div>
-            <a href="members.html" class="btn btn-primary">Meet Our Members</a>
-            <a href="join_en.html" class="btn btn-outline" style="margin-left: 8px;">Membership Inquiry</a>
+            <a href="members_en.html" class="btn btn-primary">Explore Members</a>
+            <a href="join_en.html" class="btn btn-outline" style="margin-left: 8px;">Apply for Membership</a>
         </div>
     </header>
-
     <main>
-        <!-- President's Greetings Card -->
         <div class="card">
             <div class="greetings-layout" style="display: flex; gap: 32px; align-items: flex-start;">
                 <div class="profile-photo-container">
                     <div class="profile-img-wrap" data-img-name="김경환배경">
-                        <img src="photos/김경환배경.png" alt="President Kyung-Hwan Kim" onerror="this.onerror=null; this.src='photos/김경환배경.jpg';">
+                        <img src="photos/김경환배경.png" alt="President Kyoung-Hwan Kim" onerror="this.onerror=null; this.src='photos/김경환배경.jpg';">
                     </div>
-                    <p style="margin-top: 12px; font-weight: 700; color: #0f172a; font-size: 1.1rem;">Kyung-Hwan Kim</p>
-                    <p style="font-size: 0.88rem; color: #64748b;">The 2nd President, KCCR</p>
+                    <p style="margin-top: 12px; font-weight: 700; color: #0f172a; font-size: 1.1rem;">President Kyoung-Hwan Kim, Ph.D.</p>
+                    <p style="font-size: 0.88rem; color: #64748b;">Korea Co-op of Care Robots</p>
                 </div>
-                
                 <div style="flex: 1; min-width: 280px;">
-                    <h2 style="font-size: 1.45rem; color: #0f172a; margin-bottom: 18px; border-left: 4px solid #0d9488; padding-left: 12px; line-height: 1.35;">
-                        Overcoming the Super-Aged Society Care Crisis<br>Through Robotic Innovation and Global Solidarity
-                    </h2>
-                    
-                    <p style="margin-bottom: 14px; line-height: 1.75; color: #334155;">
-                        Welcome to the <strong>Korea Co-op of Care Robots (KCCR)</strong>.<br>
-                        I am Kyung-Hwan Kim, the 2nd President of KCCR.
-                    </p>
-                    <p style="margin-bottom: 14px; line-height: 1.75; color: #334155;">
-                        South Korea is entering a super-aged society at an unprecedented speed worldwide, facing urgent and complex caregiving challenges for seniors and persons with disabilities across all sectors of society. Continuing with traditional caregiving models and labor-intensive approaches poses unsustainable burdens on national welfare systems while leaving individuals and families without viable solutions.
-                    </p>
-                    <p style="margin-bottom: 14px; line-height: 1.75; color: #334155;">
-                        To address this critical challenge, <strong>KCCR was established in July 2022 by visionary researchers, innovators, and corporations</strong> dedicated to the research and development of robotics. While robotics alone cannot solve every dimension of caregiving, our cooperative is firmly committed to <strong>developing common core technologies, supporting commercialization, and actively contributing to national policy agendas</strong> to deliver practical and impactful solutions.
-                    </p>
-                    <p style="margin-bottom: 14px; line-height: 1.75; color: #334155;">
-                        Furthermore, we will actively expand global alliances and strategic partnerships with nations facing similar demographic transitions, including Japan and international partners across the globe.
-                    </p>
-                    <p style="margin-bottom: 24px; line-height: 1.75; color: #334155;">
-                        We cordially invite researchers, industry leaders, healthcare professionals, and all of you to join and support us in building a sustainable and compassionate caregiving ecosystem.
-                    </p>
-                    
-                    <p style="text-align: right; font-weight: 700; color: #0f172a; font-size: 1.05rem; line-height: 1.6;">
-                        2026<br>
-                        <strong>Kyung-Hwan Kim</strong><br>
-                        <span style="font-size: 0.95rem; color: #1e3a8a; font-weight: 600;">The 2nd President, Korea Co-op of Care Robots (KCCR)</span>
-                    </p>
+                    <h2 style="font-size: 1.45rem; color: #0f172a; margin-bottom: 18px; border-left: 4px solid #0d9488; padding-left: 12px; line-height: 1.35;">Overcoming the Care Crisis Through<br>Robotics Technology and Solidarity.</h2>
+                    <p style="margin-bottom: 14px; line-height: 1.75; color: #334155;">Welcome.<br>I am Kyoung-Hwan Kim, the 2nd President of <strong>Korea Co-op of Care Robots (KCCR)</strong>.</p>
+                    <p style="margin-bottom: 14px; line-height: 1.75; color: #334155;">Korea is transitioning into a super-aged society at an unprecedented pace, facing acute challenges in elderly and disability care. Traditional approaches are reaching their societal and economic limits, demanding technological transformation.</p>
+                    <p style="margin-bottom: 14px; line-height: 1.75; color: #334155;">Founded in July 2022 by industry, academia, and research specialists, KCCR aims to develop <strong>common core technologies, support commercialization, and actively contribute to national care policies</strong>, creating practical, sustainable solutions for all stakeholders.</p>
+                    <p style="margin-bottom: 14px; line-height: 1.75; color: #334155;">We are also expanding our global alliance with international partners, including Japan and leading research institutes worldwide, to address demographic shifts collectively.</p>
+                    <p style="margin-bottom: 24px; line-height: 1.75; color: #334155;">We warmly invite your interest and collaboration on this vital journey toward a sustainable care ecosystem.</p>
+                    <p style="text-align: right; font-weight: 700; color: #0f172a; font-size: 1.05rem; line-height: 1.6;">2026<br>President of KCCR <span style="font-size: 1.15rem; color: #1e3a8a;">Kyoung-Hwan Kim</span></p>
                 </div>
             </div>
         </div>
-
-        <!-- Key Programs & Missions Card -->
         <div class="card">
-            <h2 style="font-size: 1.3rem; color: #0f172a; margin-bottom: 16px; border-left: 4px solid #0d9488; padding-left: 10px;">Key Initiatives & Core Capabilities</h2>
+            <h2 style="font-size: 1.3rem; color: #0f172a; margin-bottom: 16px; border-left: 4px solid #0d9488; padding-left: 10px;">Core Initiatives & Capabilities</h2>
             <ul style="padding-left: 20px; line-height: 1.85; color: #475569;">
-                <li><strong>Collaborative R&D & Core Technology:</strong> Building shared technical convergence platforms connecting care robot manufacturers, medical specialists, and rehabilitation engineers.</li>
-                <li><strong>Field Testing & Commercialization:</strong> Operating user-centric clinical testbeds and advancing safety and quality standardization for care robotics.</li>
-                <li><strong>Policy Advocacy & Institutional Support:</strong> Proactively proposing policy agendas, including long-term care insurance benefit item registration and public support frameworks.</li>
-                <li><strong>Global Alliances & International Networking:</strong> Fostering joint research, technology exchange, and cross-border cooperation with Japan and global robotics networks.</li>
+                <li><strong>Collaborative R&D & Core Technologies:</strong> Convergence platform connecting robot manufacturers and medical/rehabilitation researchers.</li>
+                <li><strong>Field Demonstration & Commercialization:</strong> Operating user-centric testbeds and driving safety and quality standardization.</li>
+                <li><strong>Policy Proposals & Institutional Support:</strong> Integrating care robots into long-term care insurance and leading national policy agendas.</li>
+                <li><strong>Global Alliance Expansion:</strong> Establishing global exchange and technical cooperation networks across Asia, North America, and Europe.</li>
             </ul>
         </div>
     </main>
-
     <footer>
-        <div class="footer-brand">
-            <img src="photos/kccr_logo.jpg" alt="KCCR Logo" onerror="this.style.display='none';">
-            <strong style="color: #f1f5f9;">Korea Co-op of Care Robots (KCCR)</strong>
-        </div>
-        <p>Head Office: #1507 Byuksan Digital Valley 5th, 244 Beotkkot-ro, Geumcheon-gu, Seoul, Republic of Korea | Tel: +82-2-000-0000 | Email: contact@kccr.or.kr</p>
+        <div class="footer-brand"><img src="photos/kccr_logo.png" alt="KCCR Logo" onerror="this.src='photos/kccr_logo.jpg';"><strong style="color: #f1f5f9;">Korea Co-op of Care Robots (KCCR)</strong></div>
+        <p>Head Office: #1507, 244 Beotkkot-ro, Geumcheon-gu, Seoul, Republic of Korea | Tel: +82-2-000-0000 | Email: contact@kccr.or.kr</p>
         <p>&copy; 2026 Korea Co-op of Care Robots (KCCR). All rights reserved.</p>
     </footer>
 </div>
-
-<!-- Image Extension Auto-fallback Script -->
-<script>
-    const EXTENSIONS = ['png', 'jpg', 'jpeg', 'webp', 'PNG', 'JPG'];
-
-    function tryLoadImage(baseName) {
-        return new Promise((resolve) => {
-            let extIdx = 0;
-            function checkNext() {
-                if (extIdx >= EXTENSIONS.length) return resolve(null);
-                const img = new Image();
-                const src = `photos/${baseName}.${EXTENSIONS[extIdx]}`;
-                img.onload = () => resolve(src);
-                img.onerror = () => { extIdx++; checkNext(); };
-                img.src = src;
-            }
-            checkNext();
-        });
-    }
-
-    document.addEventListener('DOMContentLoaded', async () => {
-        const wrap = document.querySelector('.profile-img-wrap');
-        if (wrap) {
-            const imgName = wrap.getAttribute('data-img-name');
-            const validSrc = await tryLoadImage(imgName);
-            if (validSrc) {
-                wrap.innerHTML = `<img src="${validSrc}" alt="Kyung-Hwan Kim, President">`;
-            }
-        }
-    });
-</script>
+<script src="menu_en.js"></script>
 </body>
 </html>

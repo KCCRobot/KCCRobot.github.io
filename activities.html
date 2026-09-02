@@ -3,10 +3,9 @@
 <head>
     <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>주요 활동 및 사업 - 한국돌봄로봇협동조합</title>
-    <link rel="shortcut icon" href="photos/kccr_logo.jpg" type="image/jpeg">
+    <link rel="shortcut icon" href="photos/kccr_logo.png" type="image/png">
     <style>* { box-sizing: border-box; margin: 0; padding: 0; }
 body { font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background-color: #f8fafc; color: #334155; line-height: 1.6; display: flex; min-height: 100vh; }
-/* 로고가 텍스트 위에 올라오도록 flex-direction: column 및 중앙 정렬 적용 */
 .sidebar { width: 260px; background-color: #0f172a; color: #ffffff; position: fixed; top: 0; left: 0; bottom: 0; padding: 30px 20px; overflow-y: auto; z-index: 100; display: flex; flex-direction: column; }
 .sidebar-brand { display: flex; flex-direction: column; align-items: center; text-align: center; text-decoration: none; color: #ffffff; margin-bottom: 28px; padding-bottom: 20px; border-bottom: 1px solid #1e293b; }
 .sidebar-brand img.brand-logo { width: 68px; height: 68px; object-fit: contain; margin-bottom: 12px; border-radius: 8px; background-color: #ffffff; padding: 4px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
@@ -27,31 +26,13 @@ header { background: linear-gradient(135deg, #1e3a8a 0%, #0f172a 100%); color: w
 h1.page-title { font-size: 2.1rem; font-weight: 800; margin-bottom: 8px; }
 main { max-width: 1100px; margin: 35px auto; padding: 0 25px; width: 100%; }
 .card { background: #ffffff; border-radius: 10px; border: 1px solid #e2e8f0; padding: 25px; margin-bottom: 25px; box-shadow: 0 2px 4px rgba(0,0,0,0.02); }
-.btn { display: inline-block; padding: 10px 20px; border-radius: 6px; font-weight: 600; text-decoration: none; }
-.btn-primary { background-color: #0d9488; color: #ffffff; }
-.btn-outline { border: 1px solid #94a3b8; color: #ffffff; }
 footer { background: #0f172a; color: #94a3b8; text-align: center; padding: 30px 20px; font-size: 0.85rem; margin-top: auto; border-top: 1px solid #1e293b; }
 .footer-brand { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; margin-bottom: 12px; }
 .footer-brand img { width: 40px; height: 40px; object-fit: contain; background: #fff; padding: 2px; border-radius: 4px; }
 @media (max-width: 768px) { .sidebar { position: relative; width: 100%; height: auto; } .main-wrapper { margin-left: 0; } body { flex-direction: column; } }</style>
 </head>
 <body>
-<aside class="sidebar">
-    <a href="index.html" class="sidebar-brand">
-        <img src="photos/kccr_logo.jpg" alt="KCCR 로고" class="brand-logo" onerror="this.style.display='none';">
-        <div class="brand-text">
-            한국돌봄로봇협동조합
-            <span>Korea Co-op of Care Robots</span>
-        </div>
-    </a>
-    <ul class="sidebar-menu">
-        <li><a href="index.html">조합 소개 (Home)</a></li>
-        <li><a href="about.html">조합 안내 & CI</a></li>
-        <li><a href="members.html">조합원 소개</a></li>
-        <li><a href="activities.html" class="active">주요 활동 및 사업</a></li>
-        <li><a href="join.html">조합 가입 안내</a></li>
-    </ul>
-</aside>
+<div id="sidebar-container"></div>
 <div class="main-wrapper">
     <div class="top-lang-bar"><div class="lang-switch">🌐 <a href="activities.html" class="active">🇰🇷 KOR</a> | <a href="activities_en.html">🇺🇸 ENG</a></div></div>
     <header>
@@ -70,9 +51,10 @@ footer { background: #0f172a; color: #94a3b8; text-align: center; padding: 30px 
         </div>
     </main>
     <footer>
-        <div class="footer-brand"><img src="photos/kccr_logo.jpg" alt="KCCR 로고"><strong>한국돌봄로봇협동조합</strong></div>
+        <div class="footer-brand"><img src="photos/kccr_logo.png" alt="KCCR 로고" onerror="this.src='photos/kccr_logo.jpg';"><strong>한국돌봄로봇협동조합</strong></div>
         <p>&copy; 2026 Korea Co-op of Care Robots (KCCR). All rights reserved.</p>
     </footer>
 </div>
+<script src="menu.js"></script>
 </body>
 </html>

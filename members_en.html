@@ -1,74 +1,202 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Members - KCCR</title>
-    <link rel="shortcut icon" href="photos/kccr_logo.jpg" type="image/jpeg">
-    <style>* { box-sizing: border-box; margin: 0; padding: 0; }
-body { font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background-color: #f8fafc; color: #334155; line-height: 1.6; display: flex; min-height: 100vh; }
-/* 로고가 텍스트 위에 올라오도록 flex-direction: column 및 중앙 정렬 적용 */
-.sidebar { width: 260px; background-color: #0f172a; color: #ffffff; position: fixed; top: 0; left: 0; bottom: 0; padding: 30px 20px; overflow-y: auto; z-index: 100; display: flex; flex-direction: column; }
-.sidebar-brand { display: flex; flex-direction: column; align-items: center; text-align: center; text-decoration: none; color: #ffffff; margin-bottom: 28px; padding-bottom: 20px; border-bottom: 1px solid #1e293b; }
-.sidebar-brand img.brand-logo { width: 68px; height: 68px; object-fit: contain; margin-bottom: 12px; border-radius: 8px; background-color: #ffffff; padding: 4px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
-.sidebar-brand .brand-text { font-size: 1.15rem; font-weight: 700; line-height: 1.35; color: #ffffff; }
-.sidebar-brand span { color: #38bdf8; font-size: 0.8rem; display: block; font-weight: 400; margin-top: 4px; }
-.sidebar-menu { list-style: none; flex: 1; }
-.sidebar-menu li { margin-bottom: 8px; }
-.sidebar-menu a { color: #94a3b8; text-decoration: none; font-size: 0.95rem; display: block; padding: 10px 14px; border-radius: 6px; transition: all 0.2s; }
-.sidebar-menu a:hover, .sidebar-menu a.active { color: #ffffff; background-color: #1e293b; font-weight: 600; }
-.sidebar-footer { font-size: 0.8rem; color: #64748b; border-top: 1px solid #1e293b; padding-top: 15px; }
-.main-wrapper { margin-left: 260px; flex: 1; display: flex; flex-direction: column; min-width: 0; }
-.top-lang-bar { display: flex; justify-content: flex-end; align-items: center; padding: 12px 30px; background-color: #0b1120; border-bottom: 1px solid #1e293b; }
-.lang-switch { display: inline-flex; align-items: center; gap: 10px; font-size: 0.9rem; font-weight: 600; }
-.lang-switch a { text-decoration: none; color: #94a3b8; padding: 4px 10px; border-radius: 6px; transition: all 0.2s; }
-.lang-switch a.active { color: #0d9488; background-color: #ffffff; }
-header { background: linear-gradient(135deg, #1e3a8a 0%, #0f172a 100%); color: white; padding: 50px 25px; text-align: center; border-bottom: 4px solid #0d9488; }
-.badge { display: inline-block; background-color: rgba(13, 148, 136, 0.25); border: 1px solid #0d9488; color: #5eead4; padding: 4px 14px; border-radius: 20px; font-size: 0.85rem; font-weight: 600; margin-bottom: 12px; }
-h1.page-title { font-size: 2.1rem; font-weight: 800; margin-bottom: 8px; }
-main { max-width: 1100px; margin: 35px auto; padding: 0 25px; width: 100%; }
-.card { background: #ffffff; border-radius: 10px; border: 1px solid #e2e8f0; padding: 25px; margin-bottom: 25px; box-shadow: 0 2px 4px rgba(0,0,0,0.02); }
-.btn { display: inline-block; padding: 10px 20px; border-radius: 6px; font-weight: 600; text-decoration: none; }
-.btn-primary { background-color: #0d9488; color: #ffffff; }
-.btn-outline { border: 1px solid #94a3b8; color: #ffffff; }
-footer { background: #0f172a; color: #94a3b8; text-align: center; padding: 30px 20px; font-size: 0.85rem; margin-top: auto; border-top: 1px solid #1e293b; }
-.footer-brand { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; margin-bottom: 12px; }
-.footer-brand img { width: 40px; height: 40px; object-fit: contain; background: #fff; padding: 2px; border-radius: 4px; }
-@media (max-width: 768px) { .sidebar { position: relative; width: 100%; height: auto; } .main-wrapper { margin-left: 0; } body { flex-direction: column; } }</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Members - Korea Co-op of Care Robots (KCCR)</title>
+    <link rel="shortcut icon" href="photos/kccr_logo.png" type="image/png">
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background-color: #f8fafc; color: #334155; line-height: 1.6; display: flex; min-height: 100vh; }
+        .sidebar { width: 260px; background-color: #0f172a; color: #ffffff; position: fixed; top: 0; left: 0; bottom: 0; padding: 30px 20px; overflow-y: auto; z-index: 100; display: flex; flex-direction: column; }
+        .sidebar-brand { display: flex; flex-direction: column; align-items: center; text-align: center; text-decoration: none; color: #ffffff; margin-bottom: 28px; padding-bottom: 20px; border-bottom: 1px solid #1e293b; }
+        .sidebar-brand img.brand-logo { width: 68px; height: 68px; object-fit: contain; margin-bottom: 12px; border-radius: 8px; background-color: #ffffff; padding: 4px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        .sidebar-brand .brand-text { font-size: 1.15rem; font-weight: 700; line-height: 1.35; color: #ffffff; }
+        .sidebar-brand span { color: #38bdf8; font-size: 0.8rem; display: block; font-weight: 400; margin-top: 4px; }
+        .sidebar-menu { list-style: none; flex: 1; }
+        .sidebar-menu li { margin-bottom: 8px; }
+        .sidebar-menu a { color: #94a3b8; text-decoration: none; font-size: 0.95rem; display: block; padding: 10px 14px; border-radius: 6px; transition: all 0.2s; }
+        .sidebar-menu a:hover, .sidebar-menu a.active { color: #ffffff; background-color: #1e293b; font-weight: 600; }
+        .sidebar-footer { font-size: 0.8rem; color: #64748b; border-top: 1px solid #1e293b; padding-top: 15px; }
+        .main-wrapper { margin-left: 260px; flex: 1; display: flex; flex-direction: column; min-width: 0; }
+        .top-lang-bar { display: flex; justify-content: flex-end; align-items: center; padding: 12px 30px; background-color: #0b1120; border-bottom: 1px solid #1e293b; }
+        .lang-switch { display: inline-flex; align-items: center; gap: 10px; font-size: 0.9rem; font-weight: 600; }
+        .lang-switch a { text-decoration: none; color: #94a3b8; padding: 4px 10px; border-radius: 6px; transition: all 0.2s; }
+        .lang-switch a.active { color: #0d9488; background-color: #ffffff; }
+        header { background: linear-gradient(135deg, #1e3a8a 0%, #0f172a 100%); color: white; padding: 45px 25px; text-align: center; border-bottom: 4px solid #0d9488; }
+        .badge { display: inline-block; background-color: rgba(13, 148, 136, 0.25); border: 1px solid #0d9488; color: #5eead4; padding: 4px 14px; border-radius: 20px; font-size: 0.85rem; font-weight: 600; margin-bottom: 12px; }
+        h1.page-title { font-size: 2.1rem; font-weight: 800; margin-bottom: 8px; }
+        .page-subtitle { font-size: 1.05rem; color: #93c5fd; }
+        main { max-width: 1100px; margin: 30px auto; padding: 0 25px; width: 100%; }
+        .tab-nav { display: flex; gap: 10px; margin-bottom: 30px; border-bottom: 2px solid #e2e8f0; padding-bottom: 12px; flex-wrap: wrap; }
+        .tab-btn { background: #ffffff; border: 1px solid #cbd5e1; padding: 8px 18px; border-radius: 20px; font-size: 0.95rem; font-weight: 600; color: #475569; cursor: pointer; transition: all 0.2s; }
+        .tab-btn:hover { border-color: #0d9488; color: #0d9488; }
+        .tab-btn.active { background: #0d9488; color: #ffffff; border-color: #0d9488; }
+        .section-header { margin: 35px 0 20px; padding-bottom: 10px; border-bottom: 2px solid #0f172a; display: flex; align-items: baseline; gap: 10px; }
+        .section-header h2 { font-size: 1.5rem; color: #0f172a; }
+        .section-header span { color: #64748b; font-size: 0.95rem; }
+        .member-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 24px; margin-bottom: 40px; }
+        .member-card { background: #ffffff; border-radius: 12px; border: 1px solid #e2e8f0; box-shadow: 0 2px 5px rgba(0,0,0,0.04); overflow: hidden; display: flex; flex-direction: column; transition: transform 0.2s, box-shadow 0.2s; }
+        .member-card:hover { transform: translateY(-3px); box-shadow: 0 6px 16px rgba(0,0,0,0.08); }
+        .card-img-wrap { width: 100%; height: 240px; background-color: #f1f5f9; display: flex; align-items: center; justify-content: center; overflow: hidden; position: relative; border-bottom: 1px solid #e2e8f0; padding: 10px; }
+        .card-img-wrap img { max-width: 100%; max-height: 100%; width: auto; height: auto; object-fit: contain; object-position: center center; }
+        .card-img-wrap .no-img { color: #94a3b8; font-size: 0.9rem; font-weight: 500; }
+        .card-body { padding: 22px; flex: 1; display: flex; flex-direction: column; }
+        .card-tag { display: inline-block; font-size: 0.78rem; font-weight: 700; color: #0d9488; background: #ccfbf1; padding: 3px 8px; border-radius: 4px; margin-bottom: 8px; align-self: flex-start; }
+        .card-title { font-size: 1.25rem; font-weight: 700; color: #0f172a; margin-bottom: 4px; }
+        .card-subtitle { font-size: 0.92rem; color: #64748b; margin-bottom: 14px; font-weight: 500; }
+        .card-info { font-size: 0.9rem; color: #334155; line-height: 1.6; margin-bottom: 16px; flex: 1; }
+        .card-info ul { list-style: disc; padding-left: 18px; margin-top: 6px; }
+        .card-info li { margin-bottom: 4px; }
+        footer { background: #0f172a; color: #94a3b8; text-align: center; padding: 30px 20px; font-size: 0.85rem; margin-top: auto; border-top: 1px solid #1e293b; }
+        .footer-brand { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; margin-bottom: 12px; }
+        .footer-brand img { width: 40px; height: 40px; object-fit: contain; background: #fff; padding: 2px; border-radius: 4px; }
+        @media (max-width: 768px) { .sidebar { position: relative; width: 100%; height: auto; } .main-wrapper { margin-left: 0; } body { flex-direction: column; } }
+    </style>
 </head>
 <body>
-<aside class="sidebar">
-    <a href="index_en.html" class="sidebar-brand">
-        <img src="photos/kccr_logo.jpg" alt="KCCR Logo" class="brand-logo" onerror="this.style.display='none';">
-        <div class="brand-text">
-            Korea Co-op of Care Robots
-            <span>KCCR</span>
-        </div>
-    </a>
-    <ul class="sidebar-menu">
-        <li><a href="index_en.html">Home</a></li>
-        <li><a href="about_en.html">About & CI</a></li>
-        <li><a href="members_en.html" class="active">Members</a></li>
-        <li><a href="activities_en.html">Key Activities</a></li>
-        <li><a href="join_en.html">Membership Guide</a></li>
-    </ul>
-</aside>
+<div id="sidebar-container"></div>
 <div class="main-wrapper">
-    <div class="top-lang-bar"><div class="lang-switch">🌐 <a href="members.html">🇰🇷 KOR</a> | <a href="members_en.html" class="active">🇺🇸 ENG</a></div></div>
+    <div class="top-lang-bar"><div class="lang-switch"><span>🌐</span><a href="members.html">🇰🇷 KOR</a><span style="color:#475569;">|</span><a href="members_en.html" class="active">🇺🇸 ENG</a></div></div>
     <header>
-        <div class="badge">MEMBERS</div>
-        <h1 class="page-title">KCCR Members</h1>
-        <p style="color: #93c5fd;">Executive Board and Member Companies</p>
+        <div class="badge">KCCR MEMBERS</div>
+        <h1 class="page-title">Korea Co-op of Care Robots Members</h1>
+        <p class="page-subtitle">Leading executives, corporate partners, and multidisciplinary experts driving innovation in care robotics</p>
     </header>
     <main>
-        <div class="card">
-            <h3>Executive Board & Corporate Members</h3>
-            <p style="color: #475569; margin-top: 8px;">Rainbow Robotics, Robotis, NT Robot, Wheeline, Saeon, Curaco, Novitec, and leading medical robotic scholars.</p>
+        <div class="tab-nav">
+            <button class="tab-btn active" onclick="filterCategory('all', this)">View All</button>
+            <button class="tab-btn" onclick="filterCategory('exec', this)">Executive Board</button>
+            <button class="tab-btn" onclick="filterCategory('corp', this)">Corporate Members (9)</button>
+            <button class="tab-btn" onclick="filterCategory('indiv', this)">Individual Members (11)</button>
         </div>
+
+        <!-- 1. Executive Board -->
+        <section id="section-exec" class="member-section">
+            <div class="section-header"><h2>Executive Board</h2><span>Leadership & Committee Chairs</span></div>
+            <div class="member-grid">
+                <div class="member-card">
+                    <div class="card-img-wrap" data-img-name="김경환"></div>
+                    <div class="card-body">
+                        <span class="card-tag">Chairman</span><div class="card-title">Kay (Kyunghwan) Kim, Ph.D.</div><div class="card-subtitle">Chairman, KCCR / CEO, NT Robot Co., Ltd.</div>
+                        <div class="card-info"><ul><li>Ph.D. in Engineering, The University of Tokyo</li><li>Former Researcher, Univ. of Wisconsin-Madison & Texas A&M Univ.</li><li>Former Senior Researcher, KIST Human Robot Center & Microsystems Center</li><li>Founded NT Robot (2004), leading medical, rehabilitation, and care robotics</li><li>Organizing Chair, Care Robot 2026 International Conference</li></ul></div>
+                    </div>
+                </div>
+                <div class="member-card">
+                    <div class="card-img-wrap" data-img-name="이정환"></div>
+                    <div class="card-body">
+                        <span class="card-tag">Director</span><div class="card-title">Jeong-Whan Lee, Ph.D.</div><div class="card-subtitle">Professor, Konkuk University</div>
+                        <div class="card-info"><ul><li>Ph.D. in Biomedical Engineering, Yonsei University</li><li>Former Researcher, Samsung Advanced Institute of Technology (SAIT)</li><li>Specialist in pervasive healthcare wearables, healthcare robots, bio-signal processing & HRV analysis</li><li>Organizing Committee Member, Care Robot 2026</li></ul></div>
+                    </div>
+                </div>
+                <div class="member-card">
+                    <div class="card-img-wrap" data-img-name="배영걸"></div>
+                    <div class="card-body">
+                        <span class="card-tag">Director</span><div class="card-title">Yeonggeol Bae, Ph.D.</div><div class="card-subtitle">CTO, AbleAI Co., Ltd.</div>
+                        <div class="card-info"><ul><li>Ph.D. in Intelligent Robotics, Chungnam National University</li><li>Lead designer for humanoid mobile manipulators & user-intent-sensing patient transfer assist robots</li><li>Organizing Committee Member, Care Robot 2026</li></ul></div>
+                    </div>
+                </div>
+                <div class="member-card">
+                    <div class="card-img-wrap" data-img-name="김승종"></div>
+                    <div class="card-body">
+                        <span class="card-tag">Auditor</span><div class="card-title">Seung-Jong Kim, Ph.D.</div><div class="card-subtitle">Professor, Korea University College of Medicine</div>
+                        <div class="card-info"><ul><li>M.S. & Ph.D. in Mechanical Engineering, KAIST</li><li>Former Head of Bionics Research Center, KIST</li><li>Steering Committee Member, National Rehabilitation Center Care Robot Demonstration Project</li><li>Organizing Committee Member, Care Robot 2026</li></ul></div>
+                    </div>
+                </div>
+                <div class="member-card">
+                    <div class="card-img-wrap" data-img-name="김승호"></div>
+                    <div class="card-body">
+                        <span class="card-tag">Honorary Advisor</span><div class="card-title">Seungho Kim, Ph.D.</div><div class="card-subtitle">Advisor, KCCR / Head of Research, Daedeok Nuclear Forum</div>
+                        <div class="card-info"><ul><li>Ph.D. in Robotics, Yonsei Univ.; Former Director of Nuclear Convergence Tech, KAERI</li><li>Inaugural (1st) Chairman of KCCR; Honorary Advisor, Care Robot 2026</li><li>Pioneer in radiation-hardened nuclear robotics and rehabilitation trainer robot arms</li><li>Recipient of Prime Minister's Commendation for Science & Technology Merit</li></ul></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. Corporate Members -->
+        <section id="section-corp" class="member-section">
+            <div class="section-header"><h2>Corporate Members</h2><span>9 Corporate Partners</span></div>
+            <div class="member-grid">
+                <div class="member-card"><div class="card-img-wrap" data-img-name="레인보우로보틱스"></div><div class="card-body"><span class="card-tag">1. Corporate Member</span><div class="card-title">Rainbow Robotics Inc.</div><div class="card-subtitle">CTO: Jun-Ho Oh, Ph.D.</div><div class="card-info"><strong>[Company Profile]</strong><ul><li>Comprehensive robot platform provider founded by KAIST Humanoid Robot Research Center team</li><li>Supplies Full-Stack Robotics solutions based on in-house core components and controllers</li></ul><strong style="margin-top:8px; display:inline-block;">[Flagship Products]</strong><ul><li>Collaborative robots RB / RB-N series (NSF Hygiene Certified)</li><li>Mobile dual-arm manipulator RB-Y, mobile logistics robot RBM, and quadruped robot RBQ</li></ul></div></div></div>
+                <div class="member-card"><div class="card-img-wrap" data-img-name="로보티즈"></div><div class="card-body"><span class="card-tag">2. Corporate Member</span><div class="card-title">ROBOTIS Co., Ltd.</div><div class="card-subtitle">CEO: Byung-Soo Kim</div><div class="card-info"><strong>[Company Profile]</strong><ul><li>Pioneering robotics company established in 1999</li><li>Core proprietary actuator technologies and intelligent autonomous driving software</li></ul><strong style="margin-top:8px; display:inline-block;">[Flagship Products]</strong><ul><li>Smart actuator 'DYNAMIXEL', dynamic cycloidal reducer 'DYD'</li><li>Physical AI dual-arm robot 'AI Worker', indoor/outdoor autonomous delivery robot 'GAEMI'</li></ul></div></div></div>
+                <div class="member-card"><div class="card-img-wrap" data-img-name="새온"></div><div class="card-body"><span class="card-tag">3. Corporate Member</span><div class="card-title">SAEON Co., Ltd.</div><div class="card-subtitle">CEOs: Seok-Beom Kang, Jin-Hyun Kim</div><div class="card-info"><strong>[Company Profile]</strong><ul><li>Intelligent robotics R&D and manufacturing specialist founded in 2013</li><li>Educational robotics and smart logistics mobility fleet management platforms</li></ul><strong style="margin-top:8px; display:inline-block;">[Flagship Products]</strong><ul><li>AI autonomous driving educational robot 'Altino AI'</li><li>Smart logistics mobility (AMR/AGV/OHT) controllers and integrated control software</li></ul></div></div></div>
+                <div class="member-card"><div class="card-img-wrap" data-img-name="휠라인"></div><div class="card-body"><span class="card-tag">4. Corporate Member</span><div class="card-title">WHEELINE Co., Ltd.</div><div class="card-subtitle">Custom Assistive Mobility Specialist</div><div class="card-info"><strong>[Company Profile]</strong><ul><li>Specialized manufacturer of customized assistive mobility and sports wheelchairs</li><li>Ergonomic fitting technologies and lightweight custom frame design</li></ul><strong style="margin-top:8px; display:inline-block;">[Flagship Products]</strong><ul><li>Active and sports wheelchairs (Zenith / Phoenix series)</li><li>Elderly care assistance devices and smart electric mobility platforms</li></ul></div></div></div>
+                <div class="member-card"><div class="card-img-wrap" data-img-name="제이엔티"></div><div class="card-body"><span class="card-tag">5. Corporate Member</span><div class="card-title">JNT Co., Ltd.</div><div class="card-subtitle">CEO: Seung-Won Jeon</div><div class="card-info"><strong>[Company Profile]</strong><ul><li>Precision engineering company located in Daejeon Technovalley</li><li>Structural test equipment design, precision machining, and care/service robot R&D</li></ul><strong style="margin-top:8px; display:inline-block;">[Flagship Products]</strong><ul><li>Gait training robots, gait assistance robots, and mobile robot platforms</li><li>Aerospace, defense, and maritime research test systems</li></ul></div></div></div>
+                <div class="member-card"><div class="card-img-wrap" data-img-name="엔티로봇"></div><div class="card-body"><span class="card-tag">6. Corporate Member</span><div class="card-title">NT Robot Co., Ltd.</div><div class="card-subtitle">CEO: Kay (Kyunghwan) Kim, Ph.D.</div><div class="card-info"><strong>[Company Profile]</strong><ul><li>Established in 2004, specializing in medical, rehabilitation, care robots and industrial robot SI</li><li>Expertise in multi-DOF joint control, force control, and hospital logistics automation</li></ul><strong style="margin-top:8px; display:inline-block;">[Flagship Products]</strong><ul><li>Wearable gait exoskeletons, hospital autonomous logistics robots, chemo-dispensing robots</li><li>Precision motion control systems and field-tailored industrial automation solutions</li></ul></div></div></div>
+                <div class="member-card"><div class="card-img-wrap" data-img-name="스위스아미에트"></div><div class="card-body"><span class="card-tag">7. Corporate Member</span><div class="card-title">SWISSAMIET Co., Ltd.</div><div class="card-subtitle">CEO: Jae-Hyun Joo</div><div class="card-info"><strong>[Company Profile]</strong><ul><li>Official partner supplying FAULHABER high-precision micromotors and motion control drive systems</li><li>High power-density drive analysis and precision velocity/position control engineering</li></ul><strong style="margin-top:8px; display:inline-block;">[Flagship Products]</strong><ul><li>FAULHABER high-precision DC/BLDC micromotors (SXR, BXT series)</li><li>Precision planetary gearheads, high-resolution encoders, and motion controllers</li></ul></div></div></div>
+                <div class="member-card"><div class="card-img-wrap" data-img-name="에이투마인드"></div><div class="card-body"><span class="card-tag">8. Corporate Member</span><div class="card-title">A2Mind Co., Ltd.</div><div class="card-subtitle">CEO: Yong-Woon Park, Ph.D.</div><div class="card-info"><strong>[Company Profile]</strong><ul><li>Artificial intelligence and autonomous robotics solutions developer</li><li>Specialist in AI Edge computing and digital twin monitoring systems</li></ul><strong style="margin-top:8px; display:inline-block;">[Flagship Products]</strong><ul><li>AI railway track safety inspection robot (RIBOT, validated with KORAIL)</li><li>Low-power detection/tracking systems for drones and AI elderly care solutions</li></ul></div></div></div>
+                <div class="member-card"><div class="card-img-wrap" data-img-name="노비텍"></div><div class="card-body"><span class="card-tag">9. Corporate Member</span><div class="card-title">NOVITEC Co., Ltd.</div><div class="card-subtitle">CEO: Junyoung Lee</div><div class="card-info"><strong>[Company Profile]</strong><ul><li>Manufacturer of ITS vision cameras, machine vision, and high-precision optical sensors</li><li>High-speed CMOS Global Shutter and real-time 3D laser profiling technologies</li></ul><strong style="margin-top:8px; display:inline-block;">[Flagship Products]</strong><ul><li>Machine vision cameras (i-Nova2, i-Nova3, i-Nova4 series)</li><li>High-speed real-time 3D laser scanning sensor 'Swing3D'</li></ul></div></div></div>
+            </div>
+        </section>
+
+        <!-- 3. Individual Members -->
+        <section id="section-indiv" class="member-section">
+            <div class="section-header"><h2>Individual Members</h2><span>11 Technical & Clinical Experts</span></div>
+            <div class="member-grid">
+                <div class="member-card"><div class="card-img-wrap" data-img-name="민노아"></div><div class="card-body"><span class="card-tag">10. Individual Member</span><div class="card-title">Noah Min</div><div class="card-subtitle">CEO, Gongseng</div><div class="card-info"><ul><li>Developed 120kg payload patient transfer/mobility assist robots and custom foot orthotics</li><li>EMG-sensor prosthetic arms, carbon elastic prosthetic feet, and modular assistive living tools</li></ul></div></div></div>
+                <div class="member-card"><div class="card-img-wrap" data-img-name="오준호"></div><div class="card-body"><span class="card-tag">11. Individual Member</span><div class="card-title">Jun-Ho Oh, Ph.D.</div><div class="card-subtitle">Professor Emeritus, KAIST / CTO, Rainbow Robotics</div><div class="card-info"><ul><li>Creator of South Korea's first bipedal humanoid robot 'HUBO'</li><li>World-renowned authority in humanoid robotics and mechatronics engineering</li></ul></div></div></div>
+                <div class="member-card"><div class="card-img-wrap" data-img-name="이준영"></div><div class="card-body"><span class="card-tag">12. Individual Member</span><div class="card-title">Junyoung Lee</div><div class="card-subtitle">CEO, NOVITEC / Industry Committee, Care Robot 2026</div><div class="card-info"><ul><li>Leading R&D in ITS cameras, machine vision, and real-time 3D optical sensing solutions</li></ul></div></div></div>
+                <div class="member-card"><div class="card-img-wrap" data-img-name="김동화"></div><div class="card-body"><span class="card-tag">13. Individual Member</span><div class="card-title">Dong-Hwa Kim, Ph.D.</div><div class="card-subtitle">Professor Emeritus, Hanbat National University</div><div class="card-info"><ul><li>Ph.D. in Intelligent Engineering, Tokyo Institute of Technology</li><li>Former AI Professor at Adama Science & Tech Univ. (Ethiopia) and TDT Univ. (Vietnam)</li><li>Research on intelligent control algorithms and HRI for care robots</li></ul></div></div></div>
+                <div class="member-card"><div class="card-img-wrap" data-img-name="박성민"></div><div class="card-body"><span class="card-tag">14. Individual Member</span><div class="card-title">Seongmin Bak</div><div class="card-subtitle">CEO, WHA A.I. / Industry Committee, Care Robot 2026</div><div class="card-info"><ul><li>Developed 120kg payload patient transfer and mobility assist robotics</li><li>Specialist in assistive technology: foot orthoses, EMG prosthetic hands, dynamic artificial feet</li></ul></div></div></div>
+                <div class="member-card"><div class="card-img-wrap" data-img-name="정세영"></div><div class="card-body"><span class="card-tag">15. Individual Member</span><div class="card-title">Se-Young Jung</div><div class="card-subtitle">Intelligent Robotics & Vision Specialist</div><div class="card-info"><ul><li>Developed intelligent harvesting robot system (RevoVI-H100) and crop growth analysis robots</li><li>Research in vision AI-driven autonomous agricultural harvesting platforms</li></ul></div></div></div>
+                <div class="member-card"><div class="card-img-wrap" data-img-name="전승원"></div><div class="card-body"><span class="card-tag">16. Individual Member</span><div class="card-title">Seung-Won Jeon</div><div class="card-subtitle">CEO, JNT Co., Ltd.</div><div class="card-info"><ul><li>Development of gait rehabilitation trainer robots and mobile assistance robotics</li><li>Program director for aerospace/defense precision testing equipment and strategic care robot R&D</li></ul></div></div></div>
+                <div class="member-card"><div class="card-img-wrap" data-img-name="박용운"></div><div class="card-body"><span class="card-tag">17. Individual Member</span><div class="card-title">Yong-Woon Park, Ph.D.</div><div class="card-subtitle">CEO, A2Mind Co., Ltd.</div><div class="card-info"><ul><li>Former K2 Tank SW Lead and defense robotics program director at ADD (10+ years)</li><li>Developed railway safety inspection robot 'RIBOT'; developer of AI Edge computing care solutions</li></ul></div></div></div>
+                <div class="member-card"><div class="card-img-wrap" data-img-name="이훈상"></div><div class="card-body"><span class="card-tag">18. Individual Member</span><div class="card-title">Hoonsang Lee</div><div class="card-subtitle">CEO, CURACO / Industry Committee, Care Robot 2026</div><div class="card-info"><ul><li>Care robot platform and systems engineering (CURACO 'Carebidet')</li><li>Designated as Social Service Investment Fund Company No. 1 (Ministry of Health and Welfare)</li></ul></div></div></div>
+                <div class="member-card"><div class="card-img-wrap" data-img-name="이호상"></div><div class="card-body"><span class="card-tag">19. Individual Member</span><div class="card-title">Ho-Sang Lee</div><div class="card-subtitle">President (CTO), CURACO Inc.</div><div class="card-info"><ul><li>Head of R&D for automated toileting care robot platforms ('Carebidet')</li><li>Recipient of CES Innovation Award; Selected for Top 10 National R&D Accomplishments</li></ul></div></div></div>
+                <div class="member-card"><div class="card-img-wrap" data-img-name="김성수"></div><div class="card-body"><span class="card-tag">20. Individual Member</span><div class="card-title">Sung-Soo Kim, Ph.D.</div><div class="card-subtitle">Professor Emeritus, Chungnam National University</div><div class="card-info"><ul><li>Ph.D. in Engineering, University of Iowa; Board Director, Asian Conference on Multibody Dynamics (ACMD)</li><li>Multibody dynamics analysis, modular dual-arm service robots, and real-time HILS vehicle simulation</li><li>Organizing Committee Member, Care Robot 2026</li></ul></div></div></div>
+            </div>
+        </section>
     </main>
     <footer>
-        <div class="footer-brand"><img src="photos/kccr_logo.jpg" alt="KCCR Logo"><strong>Korea Co-op of Care Robots</strong></div>
+        <div class="footer-brand"><img src="photos/kccr_logo.png" alt="KCCR Logo" onerror="this.src='photos/kccr_logo.jpg';"><strong style="color: #f1f5f9;">Korea Co-op of Care Robots (KCCR)</strong></div>
+        <p>Head Office: #1507 Byuksan Digital Valley 5th, 244 Beotkkot-ro, Geumcheon-gu, Seoul, Korea | Email: contact@kccr.or.kr</p>
         <p>&copy; 2026 Korea Co-op of Care Robots (KCCR). All rights reserved.</p>
     </footer>
 </div>
+<script>
+    const EXTENSIONS = ['png', 'jpg', 'jpeg', 'webp', 'svg'];
+    function getCandidateNames(baseName) {
+        const names = [baseName];
+        if (baseName === '에이투마인드') { names.push('A2Mind', 'a2mind', '에이투마인드1', 'a2mind_logo'); }
+        else { names.push(`${baseName}1`, `${baseName}_1`, `${baseName}_photo`); }
+        return names;
+    }
+    function tryLoadImage(baseName) {
+        return new Promise((resolve) => {
+            const candidateNames = getCandidateNames(baseName);
+            let nameIdx = 0, extIdx = 0;
+            function checkNext() {
+                if (nameIdx >= candidateNames.length) return resolve(null);
+                const currentName = candidateNames[nameIdx];
+                const currentExt = EXTENSIONS[extIdx];
+                const src = `photos/${currentName}.${currentExt}`;
+                const img = new Image();
+                img.onload = () => resolve(src);
+                img.onerror = () => {
+                    extIdx++;
+                    if (extIdx >= EXTENSIONS.length) { extIdx = 0; nameIdx++; }
+                    checkNext();
+                };
+                img.src = src;
+            }
+            checkNext();
+        });
+    }
+    async function setupCardImage(wrapper) {
+        const imgName = wrapper.getAttribute('data-img-name');
+        if (!imgName) { wrapper.innerHTML = '<span class="no-img">Image Ready</span>'; return; }
+        const validSrc = await tryLoadImage(imgName);
+        wrapper.innerHTML = validSrc ? `<img src="${validSrc}" alt="${imgName}">` : '<span class="no-img">Image Ready</span>';
+    }
+    document.addEventListener('DOMContentLoaded', () => { document.querySelectorAll('.card-img-wrap').forEach(setupCardImage); });
+    function filterCategory(cat, btn) {
+        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const sections = { 'exec': document.getElementById('section-exec'), 'corp': document.getElementById('section-corp'), 'indiv': document.getElementById('section-indiv') };
+        if (cat === 'all') { Object.values(sections).forEach(sec => sec.style.display = 'block'); }
+        else { Object.keys(sections).forEach(key => { sections[key].style.display = (key === cat) ? 'block' : 'none'; }); }
+    }
+</script>
+<script src="menu_en.js"></script>
 </body>
 </html>
